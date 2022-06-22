@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>SharePoint</title>
+    <!-- <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
+    <!-- <link type="text/css" rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    ></script>
+
+    <script src="cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"></script>
+    <style>
+      form {
+        margin: auto;
+        width: 400px;
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-radius: 1em;
+      }
+      ul {
+        list-style: none;
+        padding: 0%;
+        margin: 0;
+      }
+      form label + input {
+        margin-top: 1em;
+      }
+      label {
+        display: inline-block;
+        width: 33%;
+        text-align: left;
+      }
+      input {
+        font: 1em sans-serif;
+        width: 242px;
+        box-sizing: border-box;
+        border: 1px solid #999;
+      }
+      input:focus {
+        border-color: #000;
+      }
+      button {
+        float: right;
+        margin-top: 17px;
+        margin-left: 7px;
+        box-sizing: initial;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="" class="form" id="myForm" method="get" name="MyForm">
+        <fieldset>
+          <!-- <legend>Registration Form</legend> -->
+          <div class="row">
+            <label for="FName">First Name</label>
+            <input type="text" name="FName" id="FName" minlength="2" />
+          </div>
+          <div class="row">
+            <label for="MName">Middle Name</label>
+            <input type="text" name="MName" id="MName" minlength="2" />
+          </div>
+          <div class="row">
+            <label for="LName">Last Name</label>
+            <input type="text" name="LName" id="LName" minlength="2" />
+          </div>
+          <div class="row">
+            <label for="Phone">Phone No.</label>
+            <input type="number" name="Phone" id="Phone" minlength="2" />
+          </div>
+          <div class="row">
+            <label for="email">Emil</label>
+            <input type="email" name="email" id="email" minlength="2" />
+          </div>
+          <div class="buttons">
+            <button
+              class="btn1"
+              type="button"
+              id="submit"
+              value="Submit"
+              onclick="submit"
+            >
+              Cancel
+            </button>
+            <button
+              class="btn2"
+              type="button"
+              id="cancel"
+              value="Cancel"
+              onclick=""
+            >
+              Submit
+            </button>
+
+            <!-- <input class="btn2" type="button" id="cancel" value="Cancel" onclick=""> -->
+            <!-- <input class="btn1" type="button" id="submit" value="Submit" onclick=""> -->
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+  <script>
+    $(function () {
+      $("#submit").on("click", function () {
+        getListData();
+    });
+    function getListData() {
+      $.ajax({
+        url:
+          _spPageContexInfo.webAbsoluteUrl +
+          "/_api/web/list/GetByTitle('')/items",
+        type: "POST",
+        headers: {
+          accept: "applocation/json:odata=verbose",
+          "X-RequestDigest": "#__REQUESTDIGEST".val(),
+          "content-Type": "application/json;odata=verbose",
+        },
+        data:JSON.stringify({
+            __metadata:{
+                type:"sp.Data."
+            },
+            Title:
+        })
+        success: onQuerySucceded,
+        error: onQueryFailed,
+      });
+    }
+    function onQuerySucceded(data) {
+            var listiteminfo;
+            $.each(data.d.results, function (key, value) {
+                listItemInfo += '<b>Title:</b> ' + value.Title + - '<b>Level:</b> ' + value.Level + '<br />';
+            });
+            $("#divResults").html(listItemInfo);
+        }
+        function onQueryFailed() {
+            alert('Error!');
+        }
+  </script>
+</html>

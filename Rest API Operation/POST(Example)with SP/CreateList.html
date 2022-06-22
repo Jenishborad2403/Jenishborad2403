@@ -1,0 +1,59 @@
+<!-- ###############################################
+Create List Using Rest API in SharePoint
+###############################################
+<html> -->
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#btnClick").click(function () {
+                var title = $("#txtTitle").val();
+                var description = $("#txtDescription").val();
+                var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists";
+                $.ajax({
+                    url: requestUri,
+                    type: "POST",
+                    data: JSON.stringify({ '__metadata': { 'type': 'SP.List' }, 'AllowContentTypes': true, 'BaseTemplate': 100, 'ContentTypesEnabled': true, 'Description': description, 'Title': title }),
+                    headers: {
+                        "accept": "application/json;odata=verbose",
+                        "content-type": "application/json;odata=verbose",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                    },
+                    success: onSuccess,
+                    error: onError
+                });
+                function onSuccess(data) {
+                    alert('List Created Successfully !');
+                }
+                function onError(error) {
+                    alert(JSON.stringify(error));
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h2>Create SharePoint List using Rest API in SharePoint Online or SharePoint 2016/2013</h2>
+    <br />
+    <table>
+        <tr>
+            <td>Enter List Title:</td>
+            <td><input type="text" id="txtTitle" size="40" /></td>
+        </tr>
+        <tr>
+            <td>Enter List Description:</td>
+            <td><textarea rows="4" cols="50" id="txtDescription"></textarea></td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="button" id="btnClick" value="Create List using Rest API" />
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

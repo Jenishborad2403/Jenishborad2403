@@ -1,0 +1,68 @@
+#############################################
+SharePoint rest api send email
+code block helps to send email to a user with the help of jQuery and REST service 
+#############################################
+
+<script src=”https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js”></script>
+<script>
+function processSendEmails() {
+    var from = "krishna.Vandanapu@mstechnology.com",
+        to = "krishna.Vandanapu@mstechnology.com",
+        body = "Hello World Body",
+        subject = "Hello World Subject";
+    alert("Sending email to Krishna");
+    // Call sendEmail function
+    sendEmail(from, to, body, subject);
+    alert("Email sent Successfully");
+}
+
+function sendEmail(from, to, body, subject) {
+    try {
+        //Get the relative url of the site
+        var siteurl = _spPageContextInfo.webAbsoluteUrl;
+        alert("Site URL="+siteurl);
+        var urlTemplate = siteurl + "/_api/SP.Utilities.Utility.SendEmail";
+        alert("URLTemplate="+urlTemplate);
+        $.ajax({
+            contentType: "application/json",
+            url: urlTemplate,
+            type: "POST",
+            data: JSON.stringify({
+                "properties": {
+                    "__metadata": {
+                        "type": "SP.Utilities.EmailProperties"
+                    },
+                    "From": "krishna.Vandanapu@mstechnology.com",
+                    "To": { "results": ["krishna.Vandanapu@mstechnology.com"] },
+                    "Body": body,
+                    "Subject": subject
+                }
+            }),
+            headers: {
+                "Accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": jQuery("#__REQUESTDIGEST").val()
+            },
+            success: function(data) {
+                alert("Email Sent Successfully");
+            },
+            error: function(err) {
+                alert("Error in sending Email: " + JSON.stringify(err));
+            debugger;
+            }
+        });
+    }
+    catch (error) {
+    }
+}
+$(document).ready(function () {
+    SP.SOD.executeFunc("sp.js", "SP.ClientContext", processSendEmails);
+});
+</script>
+############################################# ===>> [ Edit email befor use ] 
+==> Save this script as sendemail.js 
+==> Upload the script in sharepoint document / asserts library
+==> Create a web part page add the content editor web part
+==> Add the javascript in a content editor web part or script editor web part
+==> code gets triggered on page load.
+#############################################

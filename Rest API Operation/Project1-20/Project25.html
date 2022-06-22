@@ -1,0 +1,56 @@
+###################################################################################
+get current user groups sharepoint rest api
+###################################################################################
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () { getCurrentUser(); });
+    function getCurrentUser() {
+        getUserWebPermissionREST();
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/CurrentUser",
+            method: "GET",
+            headers: { "Accept": "application/json; odata=verbose" },
+            success: function (data) {
+                getCurrentUserGroupColl(data.d.Id);
+            },
+            error: function (data) {
+                failure(data);
+            }
+        });
+    }
+    function getCurrentUserGroupColl(UserID) {
+        $.ajax
+            ({
+                url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/GetUserById(" + UserID + ")/Groups",
+                method: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (data) {
+
+                    /* get all group’s title of current user. */
+
+                    var results = data.d.results; var InnrHtmlgrp = "<ul>";
+                    for (var i = 0; i < results.length; i++) {
+                        InnrHtmlgrp += "<li>" + results[i].Title + "</li>";
+                    }
+                    $("#Group").append(InnrHtmlgrp + "</ul>");
+                }
+            });
+    }
+</script>
+<strong>security Group Name:</strong>
+<div id="Group"></div>
+
+###################################################################################
+==> Let's proceed:
+        When we use /_api/web/CurrentUser and /_api/web/GetUserById(“+UserID+”)/Groups
+            -> we get the current user's group collection
+            -> Right now I am using a workaround that iterates through the (big) result set.
+
+    Step 1: Navigate to your SharePoint 2013 site.
+
+    Step 2: From this page select the Site Actions | Edit Page.
+           --> click the “Web Part” option. In the “Web Parts” dialogue
+
+    Step 3: Web Part is inserted ,, You can insert the HTML and/or JavaScript
+###################################################################################

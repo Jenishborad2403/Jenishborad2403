@@ -1,0 +1,41 @@
+####################################
+Retrieve Rich Textbox content as plain text using REST API SharePoint
+####################################
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script>
+    $(function () {
+        $("#btnClick").click(function () {
+            var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('MyTest')/getitembyid(1)";
+            var requestHeaders = { "accept": "application/json;odata=verbose" };
+            $.ajax({
+                url: requestUri,
+                contentType: "application/json;odata=verbose",
+                headers: requestHeaders,
+                success: onSuccess,
+                error: onError
+            });
+
+            function onSuccess(data, request) {
+                var listiteminfo = data.d;
+                alert('Content: ' + listiteminfo.Description);
+                var pageContentText = $(listiteminfo.Description).text();
+                alert(pageContentText);
+            }
+
+            function onError(error) {
+                alert("error");
+            }
+
+        });
+    });
+
+</script>
+
+<input type="button" id="btnClick" value="Click Here" />
+####################################
+
+, I have a list which has a list item that contains a rich textbox field
+I want to retrieve that content as plain text using Rest API.
+
+####################################

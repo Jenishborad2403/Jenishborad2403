@@ -1,0 +1,47 @@
+#############################################
+Add left navigation links to SharePoint Online site using Rest API
+#############################################
+<input type="button" value="Create Navigation" id="createQuickLaunch">
+    <script type="text/javascript" src="../…/SiteAssets/Script/jquery-1.10.2.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function ($) {
+$("#createQuickLaunch").click(function () { createQuickLaunch() });
+});
+function createQuickLaunch() {
+    var endPointUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/navigation/QuickLaunch";
+    var headers = {
+    "accept": "application/json;odata=verbose",
+    "content-Type": "application/json;odata=verbose",
+    "X-RequestDigest": jQuery("#__REQUESTDIGEST").val()
+    }
+    
+    var call = jQuery.ajax({
+    url: endPointUrl,
+    type: "POST",
+    data: JSON.stringify({
+    "__metadata": { type: "SP.NavigationNode" },
+    'IsExternal': true,
+    'Title': "Notebook",
+    'Url': "http://www.testnotebook.com"
+    }),
+    headers: headers
+    });
+    call.done(successHandler);
+    call.fail(failureHandler);
+    }
+    
+    function successHandler(data, textStatus, jqXHR) {
+    SP.UI.Notify.addNotification("Navigation created Successully", false);
+    }
+    
+    function failureHandler(errorMessage) {
+    alert("Request Failed: unable to Navigation: " + JSON.stringify(errorMessage));
+    }
+    </script>
+    #############################################
+    Add left navigation links using REST API in SharePoint ==>  /_api/web/Navigation/QuickLaunch
+    I have Added one Custom navigation nodes “Notebook” in the Quick Launch
+
+
+    #############################################

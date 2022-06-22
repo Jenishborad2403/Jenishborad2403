@@ -1,0 +1,50 @@
+######################################################
+Add Bulk Users to SharePoint Group from Excel using Rest API
+######################################################
+<input type=button id="btnClick" value='Click Here' onclick="AddUserFromExcel();" />
+
+<script language="javascript" type="text/javascript">
+    var i;
+    var l;
+    var a1;
+    var user;
+    var spGroup;
+
+    function AddUserFromExcel() {
+        l = 1;
+        var Excel;
+        Excel = new ActiveXObject("Excel.Application");
+        Excel.Visible = false;
+        for (l = 1; l < 3; l++) {
+            a1 = Excel.Workbooks.Open("http://SiteURL/SiteAssets/Users.xlsx?Web=1").ActiveSheet.Cells(l, 1).Value;
+            var a4 = "Domain\\" + a1;
+            var clientContext = new SP.ClientContext.get_current();
+            var web = clientContext.get_web();
+            var siteGroups = clientContext.get_web().get_siteGroups();
+            spGroup = siteGroups.getById(4990);
+            user = web.ensureUser(a4);
+            var userCollection = spGroup.get_users();
+            userCollection.addUser(user);
+            clientContext.load(user);
+            clientContext.load(spGroup);
+            clientContext.executeQueryAsync(onQuerySucceeded, onQueryFailed);
+            function onQuerySucceeded() {
+                alert('success');
+            }
+            function onQueryFailed() {
+                alert('Request failed.');
+            }
+        }
+    }
+</script>
+######################################################
+Recently we have a requirement to add bulk users to a SharePoint group. We have the users in one excel sheet.
+
+In the excel sheet we have only the username like below:
+
+bksahoo
+bijay
+sahoo like this.
+And we have uploaded the excel sheet to the SharePoint SiteAssets library and 
+then we write the code read the excel from SiteAssets library.
+######################################################

@@ -1,0 +1,40 @@
+##################################
+Create a Custom People Directory using REST API in SharePoint
+##################################
+
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+
+<script>
+    function LoadContacts(firstName) {
+        var call = $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/Web/Lists/GetByTitle('Contacts')/items?$select=Title,FirstName&$filter=(FirstName eq '" + firstName + "')",
+            type: "GET",
+            dataType: "json",
+            headers: {
+                Accept: "application/json;odata=verbose"
+            }
+        });
+        call.done(function (data, textStatus, jqXHR) {
+            $('#JSONData').empty();
+            $.each(data.d.results, function (index, value) {
+                $('#JSONData').append("<h1>" + value.Title + value.FirstName + "</h1>" + "<h2>" + value.FirstName + "</h2>");
+            });
+        });
+        call.fail(function (jqXHR, textStatus, errorThrown) {
+            alert("Error retrieving Tasks: " + jqXHR.responseText);
+        });
+    }
+</script>
+
+
+Search By First Name: <input type="text" id="FirstName">
+<input value="Get Contacts" type="button" onClick=LoadContacts ($("#FirstName").val());>​
+<!-- <input value="Get Contacts" type="button" onClick=LoadContacts($('#FirstName').val());> -->
+<div id="JSONData">
+</div>
+
+##################################
+we are using jQuery and Ajax to call the REST API. 
+Using a Search box to search names that match with the Contact’s name.
+create list that contains custom columns 
+##################################

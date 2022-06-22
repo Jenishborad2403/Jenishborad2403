@@ -1,0 +1,40 @@
+####################################
+Click on button (Display Name of logged userId in SharePoint)
+####################################
+<Html>
+
+### <!-- This Is A Button  --> ###
+<input type="button" id="btnClick" value="Click Here" />
+
+### <!--Java Script Part--> ###
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#btnClick").click(function () {
+            var userid = _spPageContextInfo.userId;
+            var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/getuserbyid(" + userid + ")";
+            var requestHeaders = { "accept": "application/json;odata=verbose" };
+            $.ajax({
+                url: requestUri,
+                contentType: "application/json;odata=verbose",
+                headers: requestHeaders,
+                success: onSuccess,
+                error: onError
+            });
+            function onSuccess(data, request) {
+                var userinfo = data.d;
+                alert('Display Name: ' + userinfo.Title);
+            }
+            function onError(error) {
+                alert("error");
+            }
+        });
+    }); 
+</script>
+</Html>
+
+####################################
+
+Here Title property displays the user display name, similarly, 
+you can use the Email property to retrieve the Email ID of the logged user and
+you can also use the LoginName property to retrieve the user’s login name in SharePoint Online

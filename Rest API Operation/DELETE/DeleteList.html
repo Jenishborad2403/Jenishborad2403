@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#btnClick1").click(function () {
+                var title = $("#txtTitle1").val();
+                var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle(" + "'" + title + "'" + ")";
+                alert(requestUri);
+                $.ajax({
+                    url: requestUri,
+                    type: "DELETE",
+                    headers: {
+                        "accept": "application/json",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                        "IF-MATCH": "*"
+                    },
+                    success: onSuccess,
+                    error: onError
+                });
+                function onSuccess(data) {
+                    alert('List Deleted');
+                }
+                function onError
+                    (error) {
+                    alert(error);
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <table>
+    <h2>
+        Delete List Using Rest API
+    </h2>
+        <tr>
+            <td>Enter List Title:</td>
+            <td><input type="text" id="txtTitle1" size="40" /></td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="button" id="btnClick1" value="Delete List using Rest API" />
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

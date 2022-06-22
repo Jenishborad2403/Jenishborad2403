@@ -1,0 +1,36 @@
+
+Delete Function by using Item only Name -> it's Delete entire List 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script>
+$(function(){
+$("#btnClick").click(function(){
+var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('Columns_List')";
+$.ajax({
+url: requestUri,
+type: "DELETE",
+headers: {
+"accept":"application/json",
+"X-RequestDigest":$("#_REQUESTDIGEST").val(),
+"IF-MATCH":"*"
+},
+
+success: onSuccess,
+error: onError
+});
+
+function onSuccess(data) {
+alert('List Deleted');
+}
+function onError
+(error) {
+alert(error);
+}
+});
+});
+</script>
+
+<input type="button" id="btnClick" value="Click Here"/>
+

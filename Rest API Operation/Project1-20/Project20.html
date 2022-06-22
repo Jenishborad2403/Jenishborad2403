@@ -1,0 +1,41 @@
+#####################################################
+Get all users from a SharePoint permission group using REST API
+#####################################################
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#btnClick").click(function () {
+            var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/sitegroups(2544)/users";
+            $.ajax({
+                url: requestUri,
+                type: "GET",
+                headers: {
+                    "accept": "application/json;odata=verbose",
+                    "content-type": "application/json;odata=verbose",
+                    "X-RequestDigest": $("#_REQUESTDIGEST").val()
+                },
+                success: onSuccess,
+                error: onError
+            });
+            function onSuccess(data) {
+                var items = data.d.results;
+                var results = "";
+                for (var i = 0; i < items.length; i++) {
+                    results += items[i].LoginName + " : " + items[i].Email + '\n';
+                }
+                alert(results);
+            }
+            function onError(error) {
+                alert(JSON.stringify(error));
+            }
+        });
+    });
+</script>
+
+<input type="button" id="btnClick" value="Get All Users From SharePoint Group" />
+
+#####################################################
+Here, we learned, how to add user to SharePoint group using rest api as well as 
+how to retrieve all users from SharePoint group using rest api.
+
+#####################################################

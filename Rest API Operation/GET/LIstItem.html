@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.jqueryui.min.css"> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.jqueryui.min.css">
+
+    <Script>
+        $(document).ready(function () {
+            GetItems();
+        });
+
+        function GetItems() {
+            var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+            var oDataUrl = siteUrl + "/_api/web/lists/getbytitle('Test')/items?$select=Title,SecondName,FirstName1";
+            $.ajax({
+                url: oDataUrl,
+                type: "GET",
+                dataType: "json",
+                headers: {
+                    "accept": "application/json;odata=verbose"
+                },
+                success: OnSuccess,
+                error: OnFailure
+            });
+        }
+
+        function OnSuccess(data) {
+            try {
+                $('#Employee').DataTable({
+                    "aaData": data.d.results,
+                    "aoColumns": [
+                        {
+                            "mData": "Title"
+                        },
+                        {
+                            "mData": "SecondName"
+                        },
+                        {
+                            "mData":"FirstName1"
+                        }
+                    ]
+                });
+            } catch (e) {
+                alert(e.message);
+            }
+        }
+
+        function OnFailure(data, errMessage) {
+            alert("Error: " + errMessage);
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <table id="Employee" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>SecondName</th>
+                    <th>FirstName1</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+
+</html>

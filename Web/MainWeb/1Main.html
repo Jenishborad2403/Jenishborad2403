@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> -->
+    <style id="et-divi-open-sans-inline-css">
+        /* Original: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&#038;subset=latin,latin-ext&#038;display=swap */
+        /* User Agent: Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) Safari/538.1 Daum/4.1 */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 300;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4exQ.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 400;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4exQ.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 600;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4exQ.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 700;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4exQ.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 800;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4exQ.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 300;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVc.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVc.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVc.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVc.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 800;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVc.ttf) format('truetype');
+        }
+
+        /* User Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0 */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 300;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4exg.woff) format('woff');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 400;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4exg.woff) format('woff');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 600;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4exg.woff) format('woff');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 700;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4exg.woff) format('woff');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 800;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4exg.woff) format('woff');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 300;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVQ.woff) format('woff');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVQ.woff) format('woff');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVQ.woff) format('woff');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVQ.woff) format('woff');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 800;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVQ.woff) format('woff');
+        }
+
+        /* User Agent: Mozilla/5.0 (Windows NT 6.3; rv:39.0) Gecko/20100101 Firefox/39.0 */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 300;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4ewA.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 400;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4ewA.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 600;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4ewA.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 700;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4ewA.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: italic;
+            font-weight: 800;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4ewA.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 300;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVI.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVI.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVI.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVI.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 800;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/opensans/v29/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVI.woff2) format('woff2');
+        }
+        </style>
+</head>
+
+<body>
+    <div class="et_pb_menu__wrap">
+        <div class="et_pb_menu__menu">
+            <nav class="et-menu-nav">
+                <ul id="menu-menu-primary-2" class="et-menu nav">
+                    <li
+                        class="first-level first-level-2 et_pb_menu_page_id-11632 menu-item menu-item-type-custom menu-item-object-custom menu-item-11632">
+                        <a href="#">LISTENING</a>
+                        <div class="dropdown-menu-container-2">
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_3_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h4 class="et_pb_module_header">
+                                            <span>Cambridge Practice Tests</span>
+                                        </h4>
+                                        <div class="et_pb_blurb_description">
+                                            <p>Practice Cambridge IELTS Listening
+                                                Tests with Answer &amp; Transcript
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_4_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h4 class="et_pb_module_header"><span>Recent
+                                                Actual Tests</span></h4>
+                                        <div class="et_pb_blurb_description">
+                                            <p>Practice IELTS Listening Recent
+                                                Actual Tests with Answer &amp;
+                                                Transcript</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_5_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h4 class="et_pb_module_header">
+                                            <span>Practice Actual Tests</span>
+                                        </h4>
+                                        <div class="et_pb_blurb_description">
+                                            <p>Practice IELTS Listening Actual Tests
+                                                with Answers &amp; Transcript</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li
+                        class="first-level first-level-3 et_pb_menu_page_id-11633 menu-item menu-item-type-custom menu-item-object-custom menu-item-11633">
+                        <a href="#">READING</a>
+                        <div class="dropdown-menu-container-3">
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_6_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h4 class="et_pb_module_header">
+                                            <span>Cambridge Practice Tests</span>
+                                        </h4>
+                                        <div class="et_pb_blurb_description">
+                                            <p>Practice Cambridge IELTS Reading
+                                                Tests with Answer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_7_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h4 class="et_pb_module_header">
+                                            <span>British Council Practice
+                                                Tests</span>
+                                        </h4>
+                                        <div class="et_pb_blurb_description">
+                                            <p><span>Practice British Council IELTS
+                                                    Reading Tests with Answer</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_8_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h4 class="et_pb_module_header">
+                                            <span>Practice Actual Tests</span>
+                                        </h4>
+                                        <div class="et_pb_blurb_description">
+                                            <p>Practice IELTS Reading Actual Tests
+                                                with Answer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_9_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h4 class="et_pb_module_header"><span>Recent
+                                                Actual Tests</span></h4>
+                                        <div class="et_pb_blurb_description">
+                                            <p>Practice IELTS Reading Recent Actual
+                                                Tests with Answer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_10_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h3 class="et_pb_module_header"><span>Actual
+                                                Tests 2019</span></h3>
+                                        <div class="et_pb_blurb_description">
+                                            <p>Practice IELTS Reading Actual Tests
+                                                with Answer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li
+                        class="first-level first-level-4 et_pb_menu_page_id-11634 menu-item menu-item-type-custom menu-item-object-custom menu-item-11634">
+                        <a href="#">SPEAKING</a>
+                        <div class="dropdown-menu-container-4">
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_11_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h4 class="et_pb_module_header"><span>Recent
+                                                Actual Tests</span></h4>
+                                        <div class="et_pb_blurb_description">
+                                            <p>IELTS Speaking Recent Actual Tests
+                                                with with Band 8-9 Samples</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_12_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h3 class="et_pb_module_header"><span>Part
+                                                1</span></h3>
+                                        <div class="et_pb_blurb_description">
+                                            <p>42 Common Topics for IELTS Speaking
+                                                Part 1</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_13_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h4 class="et_pb_module_header"><span>Part
+                                                2</span></h4>
+                                        <div class="et_pb_blurb_description">
+                                            <p><span>100 TOPICS for IELTS Speaking
+                                                    Part 2 with Band 8 Sample</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_14_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h4 class="et_pb_module_header"><span>Part
+                                                2</span></h4>
+                                        <div class="et_pb_blurb_description">
+                                            <p><span>70 TOPICS for IELTS Speaking
+                                                    Part 2 with Band 8+ Sample
+                                                    Recordings</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_15_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated">d</span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h4 class="et_pb_module_header">
+                                            <span>Vocabulary Words</span>
+                                        </h4>
+                                        <div class="et_pb_blurb_description">
+                                            <p>Most Common Vocabulary Topics for
+                                                IELTS Speaking</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li
+                        class="first-level first-level-5 et_pb_menu_page_id-11635 menu-item menu-item-type-custom menu-item-object-custom menu-item-11635">
+                        <a href="#">WRITING</a>
+                        <div class="dropdown-menu-container-5">
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_16_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated">k</span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h4 class="et_pb_module_header"><span>Task
+                                                2</span></h4>
+                                        <div class="et_pb_blurb_description">
+                                            <p>IELTS Writing Task 2 Topics with Band
+                                                7-8-9 Samples</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_17_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated">l</span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h3 class="et_pb_module_header"><span>Recent
+                                                Actual Tests 2021</span></h3>
+                                        <div class="et_pb_blurb_description">
+                                            <p>IELTS Writing Recent Actual Tests
+                                                2021 with Band 8-9 Samples</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_18_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated">l</span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h3 class="et_pb_module_header"><span>Recent
+                                                Actual Tests 2020</span></h3>
+                                        <div class="et_pb_blurb_description">
+                                            <p>IELTS Writing Recent Actual Tests
+                                                2020 with Band 8-9 Samples</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_19_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated">l</span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h3 class="et_pb_module_header"><span>Recent
+                                                Actual Tests 2019</span></h3>
+                                        <div class="et_pb_blurb_description">
+                                            <p>IELTS Writing Recent Actual Tests
+                                                2019 with Band 8-9 Samples</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li
+                        class="first-level first-level-6 et_pb_menu_page_id-14008 menu-item menu-item-type-custom menu-item-object-custom menu-item-14008">
+                        <a href="#">GENERAL TRAINING</a>
+                        <div class="dropdown-menu-container-6">
+                            <div
+                                class="et_pb_module et_pb_blurb et_pb_blurb_20_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+                                <div class="et_pb_blurb_content">
+                                    <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
+                                                class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                    </div>
+                                    <div class="et_pb_blurb_container">
+                                        <h3 class="et_pb_module_header">
+                                            <span>General Reading Tests</span>
+                                        </h3>
+                                        <div class="et_pb_blurb_description">
+                                            <p>Practice IELTS General Reading Tests
+                                                with Answer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+        <button type="button"
+        class="et_pb_menu__icon et_pb_menu__search-button"></button>
+     <div class="et_mobile_nav_menu"> 
+        <div class="mobile_nav closed">
+            <span class="mobile_menu_bar"></span>
+            <ul id="mobile_menu1" class="et_mobile_menu">
+                <li
+                    class="first-level first-level-1 et_pb_menu_page_id-11631 menu-item menu-item-type-custom menu-item-object-custom menu-item-11631 et_first_mobile_item">
+                    <a href="#">Useful Links</a>
+                    <div class="dropdown-menu-container-1">
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_0_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header">
+                                        <span>Reading Actual Tests</span>
+                                    </h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p>Download PDF IELTS Reading Actual
+                                            Tests</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_1_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header">
+                                        <span>Listening Recent Tests</span>
+                                    </h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p>Download PDF IELTS Listening Recent
+                                            Actual Tests</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_2_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header">
+                                        <span>english-practice.net</span>
+                                    </h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p>Practice English Exercises to Improve
+                                            Your Skills</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li
+                    class="first-level first-level-2 et_pb_menu_page_id-11632 menu-item menu-item-type-custom menu-item-object-custom menu-item-11632">
+                    <a href="#">LISTENING</a>
+                    <div class="dropdown-menu-container-2">
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_3_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header">
+                                        <span>Cambridge Practice Tests</span>
+                                    </h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p>Practice Cambridge IELTS Listening
+                                            Tests with Answer &amp; Transcript
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_4_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header"><span>Recent
+                                            Actual Tests</span></h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p>Practice IELTS Listening Recent
+                                            Actual Tests with Answer &amp;
+                                            Transcript</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_5_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header">
+                                        <span>Practice Actual Tests</span>
+                                    </h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p>Practice IELTS Listening Actual Tests
+                                            with Answers &amp; Transcript</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li
+                    class="first-level first-level-3 et_pb_menu_page_id-11633 menu-item menu-item-type-custom menu-item-object-custom menu-item-11633">
+                    <a href="#">READING</a>
+                    <div class="dropdown-menu-container-3">
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_6_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header">
+                                        <span>Cambridge Practice Tests</span>
+                                    </h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p>Practice Cambridge IELTS Reading
+                                            Tests with Answer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_7_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header">
+                                        <span>British Council Practice
+                                            Tests</span>
+                                    </h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p><span>Practice British Council IELTS
+                                                Reading Tests with Answer</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_8_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header">
+                                        <span>Practice Actual Tests</span>
+                                    </h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p>Practice IELTS Reading Actual Tests
+                                            with Answer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_9_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header"><span>Recent
+                                            Actual Tests</span></h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p>Practice IELTS Reading Recent Actual
+                                            Tests with Answer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_10_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h3 class="et_pb_module_header"><span>Actual
+                                            Tests 2019</span></h3>
+                                    <div class="et_pb_blurb_description">
+                                        <p>Practice IELTS Reading Actual Tests
+                                            with Answer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li
+                    class="first-level first-level-4 et_pb_menu_page_id-11634 menu-item menu-item-type-custom menu-item-object-custom menu-item-11634">
+                    <a href="#">SPEAKING</a>
+                    <div class="dropdown-menu-container-4">
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_11_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header"><span>Recent
+                                            Actual Tests</span></h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p>IELTS Speaking Recent Actual Tests
+                                            with with Band 8-9 Samples</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_12_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h3 class="et_pb_module_header"><span>Part
+                                            1</span></h3>
+                                    <div class="et_pb_blurb_description">
+                                        <p>42 Common Topics for IELTS Speaking
+                                            Part 1</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_13_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header"><span>Part
+                                            2</span></h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p><span>100 TOPICS for IELTS Speaking
+                                                Part 2 with Band 8 Sample</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_14_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header"><span>Part
+                                            2</span></h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p><span>70 TOPICS for IELTS Speaking
+                                                Part 2 with Band 8+ Sample
+                                                Recordings</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_15_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated">d</span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header">
+                                        <span>Vocabulary Words</span>
+                                    </h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p>Most Common Vocabulary Topics for
+                                            IELTS Speaking</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li
+                    class="first-level first-level-5 et_pb_menu_page_id-11635 menu-item menu-item-type-custom menu-item-object-custom menu-item-11635">
+                    <a href="#">WRITING</a>
+                    <div class="dropdown-menu-container-5">
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_16_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated">k</span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h4 class="et_pb_module_header"><span>Task
+                                            2</span></h4>
+                                    <div class="et_pb_blurb_description">
+                                        <p>IELTS Writing Task 2 Topics with Band
+                                            7-8-9 Samples</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_17_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated">l</span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h3 class="et_pb_module_header"><span>Recent
+                                            Actual Tests 2021</span></h3>
+                                    <div class="et_pb_blurb_description">
+                                        <p>IELTS Writing Recent Actual Tests
+                                            2021 with Band 8-9 Samples</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_18_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated">l</span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h3 class="et_pb_module_header"><span>Recent
+                                            Actual Tests 2020</span></h3>
+                                    <div class="et_pb_blurb_description">
+                                        <p>IELTS Writing Recent Actual Tests
+                                            2020 with Band 8-9 Samples</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_19_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated">l</span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h3 class="et_pb_module_header"><span>Recent
+                                            Actual Tests 2019</span></h3>
+                                    <div class="et_pb_blurb_description">
+                                        <p>IELTS Writing Recent Actual Tests
+                                            2019 with Band 8-9 Samples</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li
+                    class="first-level first-level-6 et_pb_menu_page_id-14008 menu-item menu-item-type-custom menu-item-object-custom menu-item-14008">
+                    <a href="#">GENERAL TRAINING</a>
+                    <div class="dropdown-menu-container-6">
+                        <div
+                            class="et_pb_module et_pb_blurb et_pb_blurb_20_tb_header dropdown-menu-item et_clickable  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
+
+
+
+
+                            <div class="et_pb_blurb_content">
+                                <div class="et_pb_main_blurb_image"><span
+                                        class="et_pb_image_wrap"><span
+                                            class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon et-animated"></span></span>
+                                </div>
+                                <div class="et_pb_blurb_container">
+                                    <h3 class="et_pb_module_header">
+                                        <span>General Reading Tests</span>
+                                    </h3>
+                                    <div class="et_pb_blurb_description">
+                                        <p>Practice IELTS General Reading Tests
+                                            with Answer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="et_pb_module et_pb_code et_pb_code_0_tb_header">
+
+
+
+
+        <div class="et_pb_code_inner">
+            <style>
+                /* Enable class below once you're done editing the menu */
+
+
+                .dropdown-menu-row {
+                    display: none;
+                }
+            </style>
+            <style>
+                .et_pb_menu__menu [class*="dropdown-menu-container"] {
+                    position: absolute;
+                    top: 75px;
+                    left: -195px;
+                    background-color: white;
+                    width: 464px;
+                    -webkit-box-shadow: 1px 2px 44px 0px rgba(84, 81, 179, 0.36);
+                    -moz-box-shadow: 1px 2px 44px 0px rgba(84, 81, 179, 0.36);
+                    box-shadow: 1px 2px 44px 0px rgba(84, 81, 179, 0.36);
+                    border-radius: 20px;
+                    padding-top: 20px;
+                    padding-bottom: 5px;
+                    visibility: hidden;
+                    opacity: 0;
+                    -webkit-transition: 300ms all cubic-bezier(.4, 0, .2, 1);
+                    -moz-transition: 300ms all cubic-bezier(.4, 0, .2, 1);
+                    -o-transition: 300ms all cubic-bezier(.4, 0, .2, 1);
+                    -ms-transition: 300ms all cubic-bezier(.4, 0, .2, 1);
+                    transition: 300ms all cubic-bezier(.4, 0, .2, 1);
+                }
+
+                .et_pb_menu__menu ul>li:hover [class*="dropdown-menu-container"] {
+                    visibility: visible;
+                    opacity: 1;
+                }
+
+                .et_pb_menu__menu [class*="dropdown-menu-container"]:before {
+                    position: absolute;
+                    left: 195px;
+                    top: -20px;
+                    width: 0;
+                    height: 0;
+                    content: '';
+                    border-left: 20px solid transparent;
+                    border-right: 20px solid transparent;
+                    border-bottom: 20px solid white;
+                }
+
+                .et_mobile_menu [class*="dropdown-menu-container"] {
+                    background-color: white;
+                    padding-top: 25px;
+                    padding-bottom: 5px;
+                }
+
+                .et_mobile_menu li>a {
+                    background-color: transparent;
+                    position: relative;
+                }
+
+                .et_mobile_menu .first-level>a:after {
+                    font-family: 'ETmodules';
+                    content: '\4c';
+                    color: #ff3600;
+                    font-weight: normal;
+                    position: absolute;
+                    font-size: 16px;
+                    top: 13px;
+                    right: 10px;
+                }
+
+                .et_mobile_menu .first-level>.icon-switch:after {
+                    content: '\21';
+                    color: #008b45;
+                }
+
+                .et_mobile_menu [class*="dropdown-menu-container"] {
+                    display: none;
+                }
+
+                .et_mobile_menu [class*="dropdown-menu-container"].reveal-items {
+                    display: block;
+                }
+
+                .et_mobile_menu {
+                    width: 130%;
+                    margin-left: -15% !important;
+                    min-height: 100vh;
+                }
+            </style>
+
+            <script
+                src="data:text/javascript;base64,alF1ZXJ5KGZ1bmN0aW9uKCQpeyQoZG9jdW1lbnQpLnJlYWR5KGZ1bmN0aW9uKCl7JCgnLmRyb3Bkb3duLW1lbnUtY29sdW1uJykuZWFjaChmdW5jdGlvbihpKXtpPWkrMTt2YXIgJGRyb3Bkb3duTWVudUl0ZW1zPSQodGhpcykuZmluZCgnLmRyb3Bkb3duLW1lbnUtaXRlbScpO3ZhciAkbWFpbk1lbnVJdGVtPSQoJy5maXJzdC1sZXZlbC0nK2krJz5hJyk7JGRyb3Bkb3duTWVudUl0ZW1zLndyYXBBbGwoJzxkaXYgY2xhc3M9ImRyb3Bkb3duLW1lbnUtY29udGFpbmVyLScraSsnIiAvPicpO3ZhciAkZHJvcGRvd25Db250YWluZXI9JCgnLmRyb3Bkb3duLW1lbnUtY29udGFpbmVyLScraSk7JGRyb3Bkb3duQ29udGFpbmVyLmluc2VydEFmdGVyKCRtYWluTWVudUl0ZW0pfSk7dmFyICRmaXJzdExldmVsPSQoJy5ldF9tb2JpbGVfbWVudSAuZmlyc3QtbGV2ZWwgPiBhJyk7dmFyICRhbGxEcm9wZG93bnM9JCgnLmV0X21vYmlsZV9tZW51IFtjbGFzcyo9ImRyb3Bkb3duLW1lbnUtY29udGFpbmVyIl0nKTskZmlyc3RMZXZlbC5vZmYoJ2NsaWNrJykuY2xpY2soZnVuY3Rpb24oKXskKHRoaXMpLmF0dHIoJ2hyZWYnLCcjJyk7dmFyICR0aGlzRHJvcGRvd249JCh0aGlzKS5zaWJsaW5ncygpOyR0aGlzRHJvcGRvd24uc2xpZGVUb2dnbGUoKTskKHRoaXMpLnRvZ2dsZUNsYXNzKCdpY29uLXN3aXRjaCcpO3ZhciBkcm9wZG93blNpYmxpbmdzPSRhbGxEcm9wZG93bnMubm90KCR0aGlzRHJvcGRvd24pO2Ryb3Bkb3duU2libGluZ3Muc2xpZGVVcCgpO3ZhciAkdGhpc0ZpcnN0TGV2ZWw9JCh0aGlzKTt2YXIgJGZpcnN0TGV2ZWxTaWJsaW5ncz0kZmlyc3RMZXZlbC5ub3QoJHRoaXNGaXJzdExldmVsKTskZmlyc3RMZXZlbFNpYmxpbmdzLnJlbW92ZUNsYXNzKCdpY29uLXN3aXRjaCcpfSk7JCgiLmRyb3Bkb3duLW1lbnUtcm93IikuY3NzKCd2aXNpYmlsaXR5JywnaGlkZGVuJyk7JCh3aW5kb3cpLmxvYWQoZnVuY3Rpb24oKXskKCIuZHJvcGRvd24tbWVudS1yb3ciKS5mYWRlSW4oMTAwMCl9KX0pfSk="
+                defer=""></script>
+        </div>
+    </div>
+</div>
+</body>

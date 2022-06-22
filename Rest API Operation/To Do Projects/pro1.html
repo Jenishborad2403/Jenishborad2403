@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src=""></script>
+    <meta charset="utf-8" />
+    <title>My HTML Form</title>
+</head>
+
+<body>
+    <h2>Editing Form</h2>
+    Username:<br>
+    <input type="text" name="Username" id="usrtxt" />
+    <br>
+    Password:<br>
+    <input type="password" name="password" id="usrpwd" />
+    <br>
+    EmailID:<br>
+    <input type="email" name="EmailID" id="usrid" />
+    <br>
+    Address:<br>
+    <textarea rows="4" cols="50" id="addtxt"></textarea>
+    <br>
+    Gender:<br>
+    <div id="gend">
+        <input type="radio" name="gender" value="Male" id="gen0" /> Male
+        <input type="radio" name="gender" value="Female" id="gen1" /> Female
+    </div>
+    <br />
+    Country:<br />
+    <select id="dropcount">
+        <option value="India">India</option>
+        <option value="Pakistan">Pakistan</option>
+        <option value="Srilanka">Srilanka</option>
+        <option value="Australia">Australia</option>
+    </select>
+    <br />
+    SubmissionDate:<br />
+    <input type="date" id="SubmDate" title="Submitdate">
+    <br /><br />
+    <input type="submit" value="Update" id="btnUpdate" />
+    <br />
+    <p id="pTitle"></p>
+</body>
+
+</html>

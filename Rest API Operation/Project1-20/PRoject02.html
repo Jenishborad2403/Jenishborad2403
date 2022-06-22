@@ -1,0 +1,46 @@
+Delet Function by using Item ID
+<html lang="en">
+
+<head>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script>
+    $(function () {
+        $("#btnClick").click(function () {
+            var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('')/getItemById()";
+            $.ajax({
+                url: requestUri,
+                type: "DELETE",
+                headers: {
+                    "accept": "application/json",
+                    "X-RequestDigest": $("#_REQUESTDIGEST").val(),
+                    "IF-MATCH": "*"
+                },
+                success: onSuccess,
+                error: onError
+            });
+
+            function onSuccess(data) {
+                alert(data + "Item Deleted");
+            }
+            function onError
+                (error) {
+                alert(JSON.stringify(error));
+            }
+        });
+    });
+</script>
+
+<body>
+    <input type="button" id="btnClick" value="Click Here" />
+</body>
+
+</html>
+
+################################
+
+There Is a Button click the button item get Deleted
+Add The List Name In URL And list Item id ->THat id No. item Get Delete in the List That U Enter ;
+
+################################

@@ -1,0 +1,132 @@
+###############################################
+Create List Item Using rest Api
+###############################################
+
+<Script>
+    var listName = "Employee";  
+var itemType = GetItemTypeForListName(listName);  
+  
+function CreateListItem( ) {  
+     var name = $("#txtName").val();                
+     var employeeID = $("#txtEmployeeID").val();  
+     var department = $("#slctDepartment").val();  
+     var city = $("#txtCity").val();   
+     var contactNumber = $("#txtContactNumber").val();            
+              
+     var item = {  
+           "__metadata": { "type": itemType },  
+           "Title": name,  
+           "Employee_x0020_ID": employeeID,  
+           "Department": department,                      
+           "City": city,  
+           "Contact_x0020_Number": contactNumber  
+       };  
+          
+     $.ajax({  
+          url:  _spPageContextInfo.webAbsoluteUrl  + "/_api/web/lists/getbytitle('" + listName + "')/items",  
+          type: "POST",  
+          contentType: "application/json;odata=verbose",  
+          data: JSON.stringify(item),  
+          headers: {  
+               "Accept": "application/json;odata=verbose",  
+               "X-RequestDigest": $("#__REQUESTDIGEST").val()  
+           },  
+          success: function (data) {  
+               alert("success");  
+           },  
+          error: function (data) {  
+               alert("success");  
+           }  
+      });  
+}  
+  
+function GetItemTypeForListName (name)  
+      {  
+           return "SP.Data." + name.charAt(0).toUpperCase() + name.split(" ").join("").slice(1) + "ListItem";  
+      }  
+</Script>
+
+<!-- ###############################################
+Delete List Item Using rest Api
+############################################### -->
+
+<script>
+    var listName = "Employee";  
+  
+function RemoveListItem() {  
+    var myID = $("#numID").val();  
+    if ((myID.length < 1) || isNaN(myID)) {  
+        alert("Please enter a valid item ID");  
+    } else {  
+        $.ajax({  
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + listName + "')/items(" + myID + ")",  
+            type: "POST",  
+            contentType: "application/json;odata=verbose",  
+            headers: {  
+                "Accept": "application/json;odata=verbose",  
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),  
+                "IF-MATCH": "*",  
+                "X-HTTP-Method": "DELETE",  
+            },  
+            success: function(data) {  
+                alert("success");  
+            },  
+            error: function(data) {  
+                alert("failed");  
+            }  
+        });  
+    }  
+}
+</script>
+
+<!-- ###############################################
+Update List Item Using Rest API
+############################################### -->
+
+<script>
+    var listName = "Employee";  
+var itemType = GetItemTypeForListName(listName);  
+  
+function GetItemTypeForListName(name)  
+{  
+            return "SP.Data." + name.charAt(0).toUpperCase() + name.split(" ").join("").slice(1) + "ListItem";  
+        }  
+  
+function UpdateListItem()  
+        {  
+            var myID = $("#numID").val();  
+            var name = $("#txtName").val();                
+            var employeeID = $("#txtEmployeeID").val();  
+            var department = $("#slctDepartment").val();  
+            var city = $("#txtCity").val();   
+            var contactNumber = $("#txtContactNumber").val();            
+              
+            var item = {  
+                "__metadata": { "type": itemType },  
+                "Title": name,  
+                "Employee_x0020_ID": employeeID,  
+                "Department": department,                      
+                "City": city,  
+                "Contact_x0020_Number": contactNumber  
+            };  
+          
+            $.ajax({  
+                url:  _spPageContextInfo.webAbsoluteUrl  + "/_api/web/lists/getbytitle('" + listName + "')/items(" + myID + ")",  
+                type: "POST",  
+                contentType: "application/json;odata=verbose",  
+                data: JSON.stringify(item),  
+                headers: {  
+                    "Accept": "application/json;odata=verbose",  
+                    "X-RequestDigest": $("#__REQUESTDIGEST").val(),  
+                    "IF-MATCH": "*",  
+                    "X-HTTP-Method":"MERGE",  
+                },  
+                success: function (data) {  
+                    alert("success");  
+                },  
+                error: function (data) {  
+                    alert("failed");  
+                }  
+            });  
+        } 
+</script>

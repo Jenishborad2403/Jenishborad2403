@@ -1,0 +1,34 @@
+####################################
+Value does not fall within the expected range in SharePoint Rest API [An Error Solving]
+
+####################################
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#btnClick").click(function () {
+            var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/folders";
+            $.ajax({
+                url: requestUri,
+                type: "POST",
+                data: JSON.stringify({ '__metadata': { 'type': 'SP.Folder' }, 'ServerRelativeUrl': '/Shared Documents/Folder1' }),
+                headers: {
+                    "accept": "application/json;odata=verbose",
+                    "content-type": "application/json;odata=verbose",
+                    "X-RequestDigest": $("#_REQUESTDIGEST").val()
+                },
+                success: onSuccess,
+                error: onError
+            });
+        });
+    });
+</script>
+##########################################
+The backslash (/) we have given before /Shared Documents was causing the issue.
+data:JSON.stringify({'__metadata': 
+{ 'type': 'SP.Folder' }, 'ServerRelativeUrl': '/Shared Documents/Folder1'}),
+
+without backslash (/) and it worked.
+data:JSON.stringify({'__metadata': 
+{ 'type': 'SP.Folder' }, 'ServerRelativeUrl': 'Shared Documents/Folder1'}),
+
+##########################################

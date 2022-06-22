@@ -1,0 +1,37 @@
+###################################################################################
+How to update SharePoint group using Rest API
+###################################################################################
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script>
+    $(function () {
+        $("#btnClick").click(function () {
+            var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/sitegroups(3838)";
+            $.ajax({
+                url: requestUri,
+                type: "POST",
+                data: JSON.stringify({ '__metadata': { 'type': 'SP.Group' }, 'Description': 'My New Updated Group Description' }),
+                headers: {
+                    "content-type": "application/json;odata=verbose",
+                    "X-HTTP-Method": "MERGE"
+                },
+                success: onSuccess,
+                error: onError
+            });
+            function onSuccess(data) {
+                alert('Group description updated successfully');
+            }
+            function onError(error) {
+                alert(JSON.stringify(error));
+            }
+        });
+    });
+</script>
+<input type="button" id="btnClick" value="Update SharePoint Group Details" />
+
+###################################################################################
+=> Below is the rest api code to update SharePoint group details using Rest API in SharePoint 2013/2016 or SharePoint Online.
+    We can add the code inside a script editor or content editor web part in a web part page in SharePoint.
+
+###################################################################################

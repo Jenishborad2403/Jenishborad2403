@@ -1,0 +1,33 @@
+#####################################
+SharePoint Rest API filter
+#####################################
+
+<script>
+    function Divsion() {
+        var listName = "Divisions";
+        var itemId = "";
+        var Ownurl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle(‘ ’)/items?$select=OwnerEmailID&$filter=Title eq ‘test1′";
+        $.ajax({
+            url: Ownurl,
+            headers: { Accept: "application/json;odata=verbose" },
+            async: false,
+            success: function (data) {
+                var items = data.d.results;
+                if (items[0].OwnerEmailID != "") {
+                    itemId = items[0].OwnerEmailID;
+                }
+
+            }, eror: function (data) {
+                alert("An error occurred. Please try again.");
+            }
+        });
+    }
+</script>
+#####################################
+[Enter Item List Name In REST Api URL]
+-->REST it's very easy to filter lists and gives to flexibility using few lines 
+-->you can use REST to filter or query on SharePoint lists and returns data as you want.
+$Select: Lets you select list columns you want to return
+$filter: Condition based results.
+
+#####################################

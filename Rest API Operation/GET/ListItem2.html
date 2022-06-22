@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#btnsubmit").on("click", function () {
+                getListData();
+            });
+        });
+        function getListData() {
+            var fullURL = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle()/items";
+            $.ajax({
+                url: fullURL,
+                type: "GET",
+                headers: {
+                    "accept": "application/json;odata=verbose",
+                    "content-type": "application/json;odata=verbose",
+                },
+                success: onQuerySucceded,
+                error: onQueryFailed
+            });
+        }
+        function onQuerySucceded(data) {
+            var listiteminfo;
+            $.each(data.d.results, function (key, value) {
+                listItemInfo += '<b>Title:</b> ' + value.Title + - '<b>Level:</b> ' + value.Level + '<br />';
+            });
+            $("#divResults").html(listItemInfo);
+        }
+        function onQueryFailed() {
+            alert('Error!');
+        }
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <input type="button" value="Get list Data" id="btnsubmit">
+    </div>
+    <div id="divResults"></div>
+</body>
+
+</html>

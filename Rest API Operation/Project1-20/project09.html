@@ -1,0 +1,50 @@
+#############################################
+Add Top Navigation Link to a Site Using REST API in SharePoint 2013:
+#############################################
+
+<head>
+
+    <script type="text/javascript" src="../../SiteAssets/1.11.2.jquery.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#createTopNav").click(function () { CreateTopNavigationLink() });
+        });
+        function CreateTopNavigationLink() {
+            var siteUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web / navigation / TopNavigationbar";
+            var headers = {
+                "accept": " application/json;odata=verbose",
+                "content - Type": "application/json;odata=verbose",
+                "X - RequestDigest": jQuery("#__REQUESTDIGEST").val()
+            }
+            var call = jQuery.ajax({
+                url: siteUrl,
+                type: "POST",
+                data: JSON.stringify({
+                    "__metadata": { type: "SP.NavigationNode" },
+                    'IsExternal': true,
+                    'Title': "AnotherPage",
+                    'Url': "http://www.anotherpage.com"
+                }),
+                headers: headers
+            });
+            call.done(successHandler);
+            call.fail(failureHandler);
+        };
+
+        function successHandler(data, textStatus, jqXHR) {
+            alert("Navigation created Successully");
+        }
+        function failureHandler(errorMessage) {
+            alert("Request Failed: unable to Navigation: " + JSON.stringify(errorMessage));
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Add Top Navigation Link" id="createTopNav"></input>
+</body>
+#############################################
+REST API TopNavigationbar EndPoint to use in Add_ins – /_api/web/navigation/TopNavigationbar
+heare Is Notebook url
+
+#############################################

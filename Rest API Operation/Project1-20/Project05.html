@@ -1,0 +1,52 @@
+###############################
+
+Retrieve all lists and libraries using Rest API in SharePoint
+
+###############################
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#btnSubmit").on("click", function () {
+            getAllLists();
+        });
+    });
+
+    function getAllLists() {
+        var fullUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists";
+        $.ajax({
+            url: fullUrl,
+            type: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+            },
+            success: onQuerySucceeded,
+            error: onQueryFailed
+        });
+    }
+
+    function onQuerySucceeded(data) {
+        var listItemInfo = "";
+        $.each(data.d.results, function (key, value) {
+            listItemInfo += 'Title: ' + value.Title + '<br />';
+        });
+        $("#divAllLists").html(listItemInfo);
+    }
+    function onQueryFailed() {
+        alert('Error!');
+    }
+</script>
+
+<div>
+    <input type="button" id="btnSubmit" value="Get All Lists" />
+</div>
+<div id="divResults"></div>
+<div id="divAllLists"></div>
+
+###############################
+we will take a button ,
+on click of the button, we will display all lists
+onQuerySucceeded method, we are retrieving all the lists in for each loop.
+And we are binding the data into the <div id=”divAllLists”></div>
+###############################

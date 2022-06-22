@@ -1,0 +1,65 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+<script>
+    var myAngApp = angular.module('SharePointAngApp', []);
+    myAngApp.controller('spCustomerController', function ($scope, $http) {
+
+        $http({
+            method: 'GET',
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('InfoList')/items?$select=Title,Employee,Company",
+            headers: { "Accept": "application/json;odata=verbose" }
+        }).success(function (data, status, headers, config) {
+
+            $scope.customers = data.d.results;
+            $scope.mySortFunction = function (customer) {//Sorting Iteam
+                if (isNaN(customer[$scope.sortExpression]))
+                    return customer[$scope.sortExpression];
+                return parseInt(customer[$scope.sortExpression]);
+            }
+        }).error(function (data, status, headers, config) {
+        });
+    });
+</script>
+<style>
+    th {
+        background-color: #778899;
+        color: white;
+    }
+</style>
+<h1> Filtering and sorting in SharePoint List using AngularJS-REST-API !!</h1>
+<br /><br />
+<div ng-app="SharePointAngApp" class="row">
+    <div ng-controller="spCustomerController" class="span10">
+        <div>
+
+            Sort by:
+            <select ng-model="sortExpression">
+                <option value="Title">Title</option>
+                <option value="Employee">Employee</option>
+                <option value="Company">Company</option>
+            </select>
+        </div>
+        <br />
+
+        Search By Any:
+
+        <input type="text" ng-model="search.$" />
+        <br />
+        <br />
+        <table class="table table-condensed table-hover">
+            <tr>
+                <th>Title</th>
+                <th>Employee</th>
+                <th>Company</th>
+            </tr>
+            <tr ng-repeat="customer in customers | orderBy:mySortFunction | filter:search">
+                <td>{{customer.Title}}</td>
+                <td>{{customer.Employee}}</td>
+                <td>{{customer.Company}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</html>

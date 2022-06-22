@@ -1,0 +1,38 @@
+###############################################################
+How to create a SharePoint group using Rest API
+###############################################################
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#btnClick").click(function () {
+            var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/sitegroups";
+            $.ajax({
+                url: requestUri,
+                type: "POST",
+                data: JSON.stringify({ '__metadata': { 'type': 'SP.Group' }, 'Title': 'MyTest Group', 'Description': 'My Group Description' }),
+                headers: {
+                    "accept": "application/json;odata=verbose",
+                    "content-type": "application/json;odata=verbose",
+                    "X-RequestDigest": $("#_REQUESTDIGEST").val()
+                },
+                success: onSuccess,
+                error: onError
+            });
+            function onSuccess(data) {
+                alert('Group created successfully');
+            }
+            function onError(error) {
+                alert(JSON.stringify(error));
+            }
+        });
+    });
+</script>
+<input type="button" id="btnClick" value="Create SharePoint Group" />
+
+##############################################################################
+==>  Below is the SharePoint rest api code to create a SharePoint group in SharePoint Online or SharePoint 2013/2016 using rest api.
+
+->Put the below code inside a script editor web part or content editor web part in a web part page in SharePoint.
+   Once you will click on the button it will create the SharePoint group.
+
+##############################################################################

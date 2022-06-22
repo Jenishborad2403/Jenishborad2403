@@ -1,0 +1,40 @@
+#############################################
+Set default value to a field in a list using Rest API in SharePoint Online
+#############################################
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script>
+    $(function () {
+        $("#btnClick").click(function () {
+            var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('MyChartList')/fields/getbytitle('MyDefaultValueColumn')";
+            $.ajax({
+                url: requestUri,
+                type: "POST",
+                data: "{ '__metadata': { 'type':'SP.Field' }, 'DefaultValue': 'Hello Updated Value' }",
+                headers: {
+                    "Accept": "application/json;odata=verbose",
+                    "X-HTTP-Method": "MERGE",
+                    "content-type": "application/json;odata=verbose",
+                    "X-RequestDigest": $('#__REQUESTDIGEST').val(),
+                    "If-Match": "*",
+                },
+                success: onSuccess,
+                error: onError
+            });
+
+            function onSuccess(data) {
+                alert('Success');
+            }
+
+            function onError(error) {
+                alert('Error');
+            }
+        });
+    });
+</script>
+
+<input type="button" id="btnClick" value="Update Default Column Value" />
+#############################################
+MyDefaultValueColumn I have set a default value as Hiii 
+lick on the button, then the Default value will be updated with “Hello Updated Value
+#############################################

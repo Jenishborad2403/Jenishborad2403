@@ -1,0 +1,51 @@
+#############################################
+Send email using rest api using SharePoint
+#############################################
+<h1>Contact Us</h1><br />
+Name: <br />
+<input type="text" name="myname" id="myname" placeholder="Enter your Name" /><br />
+Email: <br />
+<input type="text" name="myemail" id="myemail" placeholder="Enter your Email Address" /><br />
+Message: <br />
+<textarea rows="4" cols="50" id="mymessage"></textarea><br /><br />
+<button type="button" id="fbutton">Send Message</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#fbutton").click(function () {
+            var sitetemplateurl = _spPageContextInfo.webServerRelativeUrl + "_api/SP.Utilities.Utility.SendEmail";
+            var name = $("#myname").val();
+            var from = $("#myemail").val();
+            var msg = 'From: ' + name + '<br/><br/>' + 'Email: ' + from + '<br/><br/><br/>' + $("#mymessage").val();
+
+            $.ajax({
+                contentType: 'application/json',
+                url: sitetemplateurl,
+                type: "POST",
+                data: JSON.stringify({
+                    'properties': {
+                        '__metadata': { 'type': 'SP.Utilities.EmailProperties' },
+                        'From': from,
+                        'To': { 'results': ['user1@OnlySharePoint2013.onmicrosoft.com'] },
+                        'Body': msg,
+                        'Subject': 'New Email From SharePoint Online using RestAPI'
+                    }
+                }),
+                headers: {
+                    "Accept": "application/json;odata=verbose",
+                    "content-type": "application/json;odata=verbose",
+                    "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                },
+                success: function (data) {
+                    alert('Message sent successfully !!!');
+                    $("#myname").val("");
+                    $("#myemail").val("");
+                    $("#mymessage").val("");
+                },
+                error: function (err) {
+                    alert(JSON.stringify(err));
+                }
+            });
+        });
+    });
+</script>

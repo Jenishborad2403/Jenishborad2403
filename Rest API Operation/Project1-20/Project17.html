@@ -1,0 +1,210 @@
+#####################################################
+Currency Converter in SharePoint Online using JavaScript and REST API
+#####################################################
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">                                      
+<div class="jumbotron">
+  <div class="container">
+     <h2>Currency Converter in SharePoint Online </h2> 
+   <form class="form-inline">
+     <div class="form-group mb-2">
+        <input type="number" class="form-control" id="amount"/>
+     </div>
+     <div class="form-group mx-sm-3 mb-2">
+        <select class="form-control" id="from_currency" required>
+         <option value="AED">AED</option>
+		<option value="ARS">ARS</option>
+		<option value="AUD">AUD</option>
+		<option value="BGN">BGN</option>
+		<option value="BRL">BRL</option>
+		<option value="BSD">BSD</option>
+		<option value="CAD">CAD</option>
+		<option value="CHF">CHF</option>
+		<option value="CLP">CLP</option>
+		<option value="CNY">CNY</option>
+		<option value="COP">COP</option>
+		<option value="CZK">CZK</option>
+		<option value="DKK">DKK</option>
+		<option value="DOP">DOP</option>
+		<option value="EGP">EGP</option>
+		<option value="EUR">EUR</option>
+		<option value="FJD">FJD</option>
+		<option value="GBP">GBP</option>
+		<option value="GTQ">GTQ</option>
+		<option value="HKD">HKD</option>
+		<option value="HRK">HRK</option>
+		<option value="HUF">HUF</option>
+		<option value="IDR">IDR</option>
+		<option value="ILS">ILS</option>
+		<option value="INR">INR</option>
+		<option value="ISK">ISK</option>
+		<option value="JPY">JPY</option>
+		<option value="KRW">KRW</option>
+		<option value="KZT">KZT</option>
+		<option value="MXN">MXN</option>
+		<option value="MYR">MYR</option>
+		<option value="NOK">NOK</option>
+		<option value="NZD">NZD</option>
+		<option value="PAB">PAB</option>
+		<option value="PEN">PEN</option>
+		<option value="PHP">PHP</option>
+		<option value="PKR">PKR</option>
+		<option value="PLN">PLN</option>
+		<option value="PYG">PYG</option>
+		<option value="RON">RON</option>
+		<option value="RUB">RUB</option>
+		<option value="SAR">SAR</option>
+		<option value="SEK">SEK</option>
+		<option value="SGD">SGD</option>
+		<option value="THB">THB</option>
+		<option value="TRY">TRY</option>
+		<option value="TWD">TWD</option>
+		<option value="UAH">UAH</option>
+		<option value="USD" selected>USD</option>
+		<option value="UYU">UYU</option>
+		<option value="VND">VND</option>
+		<option value="ZAR">ZAR</option>
+        </select>
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <label>convert to</label><div class="rate" id="rate"></div>
+        <select class="form-control" id="to_currency" required>
+        <option value="AED">AED</option>
+		<option value="ARS">ARS</option>
+		<option value="AUD">AUD</option>
+		<option value="BGN">BGN</option>
+		<option value="BRL">BRL</option>
+		<option value="BSD">BSD</option>
+		<option value="CAD">CAD</option>
+		<option value="CHF">CHF</option>
+		<option value="CLP">CLP</option>
+		<option value="CNY">CNY</option>
+		<option value="COP">COP</option>
+		<option value="CZK">CZK</option>
+		<option value="DKK">DKK</option>
+		<option value="DOP">DOP</option>
+		<option value="EGP">EGP</option>
+		<option value="EUR">EUR</option>
+		<option value="FJD">FJD</option>
+		<option value="GBP">GBP</option>
+		<option value="GTQ">GTQ</option>
+		<option value="HKD">HKD</option>
+		<option value="HRK">HRK</option>
+		<option value="HUF">HUF</option>
+		<option value="IDR">IDR</option>
+		<option value="ILS">ILS</option>
+		<option value="INR" selected>INR</option>
+		<option value="ISK">ISK</option>
+		<option value="JPY">JPY</option>
+		<option value="KRW">KRW</option>
+		<option value="KZT">KZT</option>
+		<option value="MXN">MXN</option>
+		<option value="MYR">MYR</option>
+		<option value="NOK">NOK</option>
+		<option value="NZD">NZD</option>
+		<option value="PAB">PAB</option>
+		<option value="PEN">PEN</option>
+		<option value="PHP">PHP</option>
+		<option value="PKR">PKR</option>
+		<option value="PLN">PLN</option>
+		<option value="PYG">PYG</option>
+		<option value="RON">RON</option>
+		<option value="RUB">RUB</option>
+		<option value="SAR">SAR</option>
+		<option value="SEK">SEK</option>
+		<option value="SGD">SGD</option>
+		<option value="THB">THB</option>
+		<option value="TRY">TRY</option>
+		<option value="TWD">TWD</option>
+		<option value="UAH">UAH</option>
+		<option value="USD">USD</option>
+		<option value="UYU">UYU</option>
+		<option value="VND">VND</option>
+		<option value="ZAR">ZAR</option>
+        </select>
+      </div>  
+      <button class="btn calculate-btn btn btn-success mb-2" id="exchange">Convert</button>
+    </form>
+    <div class="result">
+      <p>
+        <span class="given-amount"></span> 
+        <span class="base-currency"></span>
+        <span class="final-result" id="to_ammount"></span> 
+        <span class="second-currency"></span>
+      </p>
+    </div>
+  </div> 
+</div>
+</body>
+</html>
+<!-- ---------------------------------------------------------------------
+Step 3: Below is my script which can help us to build this app. 
+Here I called api.exchangerate-api.com to get currency rate.
+--------------------------------------------------------------------- -->
+<script language="JavaScript">
+var from_currencyEl = document.getElementById('from_currency');
+var amountInput = document.getElementById('amount');
+var to_currencyEl = document.getElementById('to_currency');
+var to_ammountEl = document.getElementById('to_ammount');
+var rateEl = document.getElementById('rate');
+var exchange = document.getElementById('exchange');
+var toShowAmount = document.querySelector('.given-amount');
+var toShowBase = document.querySelector('.base-currency');
+var toShowSecond = document.querySelector('.second-currency');
+var toShowResult = document.querySelector('.final-result');
+
+exchange.addEventListener('click', convertCurrency);
+
+  function convertCurrency(event) {
+  event.preventDefault();
+  var amount = amountInput.value;
+  var from_currency = from_currencyEl.value;
+  var to_currency = to_currencyEl.value;
+  var result = 0;
+  toShowAmount.innerHTML = amount;
+  toShowBase.textContent = from_currency + ' = ';
+  toShowSecond.textContent = to_currency;
+  
+  var restUrl = "https://api.exchangerate-api.com/v4/latest/"+from_currency+"";
+
+  $.ajax(
+    {
+       url: restUrl,
+        method: "GET",
+        headers:
+        {
+           "accept": "application/json;odata=verbose",
+        },
+       success: onSuccess,
+       error: onError
+    });
+  
+  function onSuccess(data) {
+    if(data)
+    {
+       var rate = data.rates[to_currency];
+	   rateEl.innerText = "1"+ from_currency+" = "+rate+" "+to_currency+"";
+	   toShowResult.textContent = (amountInput.value * rate).toFixed(2);
+    }
+}
+ 
+function onError(err) {
+   var response =
+   {
+       header: "error",
+       message: err
+   };
+}
+  
+    }
+</script>
+#####################################################
+click the button it's Called EventListener to called currencyconverter
+#####################################################
