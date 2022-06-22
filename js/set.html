@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="set.js"></script>
+    <script src="https://outsourceindia.sharepoint.com/sites/OSI/hrprivate/QualityCompliance/SiteAssets/set.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>SharePoint site page Edit</h1>
+    <form name="site" onsubmit=" return validation()" method="post">
+        <p>Firstname: <input type="text" placeholder="First Name" name="Fname"></p>
+        <p>Lastname: <input type="text" name="Lname" placeholder="Last Name"></p>
+        <p>Address: <input type="text" name="Address" placeholder="Adderss"></p>
+        <p>Mobile No: <input type="tel" pattern="[789][0-9]{9}" name="Mno" placeholder="Mobile No"></p>
+        <p>E-Malil: <input type="email" placeholder="E-Malil" name="email" placeholder="E-mail" ></p>
+        <p>Password: <input type="text" name="Pass" placeholder="Password" ></p>
+        <p>Comments: <textarea name="Comments" id="" cols="30" rows="10" placeholder="Comment" ></textarea></p>
+        <input type="submit" value="send" name="Submit">
+        <input type="reset" value="reset" name="Resrt">
+    </form>
+</body>
+
+</html>

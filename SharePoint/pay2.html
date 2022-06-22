@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <title>Project Passport</title>
+    <style>
+        #table1 {
+            margin: 20px auto;
+            padding: 0px;
+            width: 50%;
+            box-shadow: 3px 3px rgb(110, 105, 105);
+            font-size: 20px;
+        }
+
+        input {
+            font-size: large;
+            box-sizing: border-box;
+        }
+
+        input[type=text] {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        input[type=number] {
+            width: 100%;
+            margin-bottom: 10px;
+
+        }
+
+        input[type=email] {
+            width: 100%;
+            margin-bottom: 10px;
+
+        }
+
+        input[type=submit] {
+            width: 50%;
+            margin-bottom: 10px;
+
+        }
+        label{
+            margin-bottom: 10px;
+        }
+        text{
+            margin-left: 25%;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="table1">
+        <text name="" id="" cols="30" rows="10"> * Payment Information (To be filled by Passport Counsellor)</text>
+        
+        <tr>
+            <td>
+               <label >First Name:</label> 
+            </td>
+            <td>
+                <input type="text" pattern="[a-z,A-Z]*" name="First Name" id="fname">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label> Middle Name:</label>
+            </td>
+            <td>
+                <input type="text" pattern="[a-z,A-Z]" name="Middle Name" id="mname">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Last Name:
+            </td>
+            <td>
+                <input type="text" pattern="[a-z,A-Z]" name="Last Name" id="lname">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mobile No:
+            </td>
+            <td>
+                <input type="number" pattern="\d{10}" name="" id="mobile">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Branch:
+            </td>
+            <td>
+                <input type="text" name="" id="branch">
+            </td>
+        </tr>
+        <td>
+            Email:
+        </td>
+        <td>
+            <input type="email" name="" id="email">
+        </td>
+        <tr>
+            <td>
+                <input type="submit" value="submit" id="btn">
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

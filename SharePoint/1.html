@@ -1,0 +1,25 @@
+<input type="button" id="btnClick" value="Click Here" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#btnClick").click(function () {
+            var userid = _spPageContextInfo.userId;
+            var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/getuserbyid(" + userid + ")";
+            var requestHeaders = { "accept": "application/json;odata=verbose" };
+            $.ajax({
+                url: requestUri,
+                contentType: "application/json;odata=verbose",
+                headers: requestHeaders,
+                success: onSuccess,
+                error: onError
+            });
+            function onSuccess(data, request) {
+                var userinfo = data.d;
+                alert('Display Name: ' + userinfo.Title);
+            }
+            function onError(error) {
+                alert("error");
+            }
+        });
+    }); 
+</script>

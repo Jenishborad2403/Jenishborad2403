@@ -1,0 +1,280 @@
+<html lang="en">
+
+<head>
+
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <link type="text/css" rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript" src="https://momentjs.com/downloads/moment.min.js"></script>
+
+    <style type="text/css">
+        .bc-search-box {
+            width: 300px;
+        }
+
+        .bc-table {
+            width: 150%;
+            font-size: 12px;
+        }
+
+        .bc-sub-header {
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        .bc-main-header {
+            font-size: 19px;
+        }
+
+        .tblDetails th,
+        .tblDetails td {
+            width: 400%;
+        }
+
+        .non-border {
+            border: none;
+        }
+
+        /* #DeltaPlaceHolderPageTitleInTitleArea {
+            display: none;
+        } */
+
+        /* #dvDetails {
+            width: 300px;
+        } */
+
+        .tlbPreIntake {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+        }
+
+        .tlbPreIntake td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .sectionheading {
+            background-color: #ccebff !important;
+            color: #000 !important;
+            font-size: 15px !important;
+        }
+
+        .required {
+            color: red;
+            vertical-align: -webkit-baseline-middle;
+        }
+
+  
+    </style>
+    </style>
+</head>
+
+<body>
+    <!-- <div> -->
+        <tbody>
+    <table id="tlbClientInfo" style="width: 100%;" class="tlbPreIntake">
+    
+        
+            <tr>
+                <td colspan="4">
+                    <span class="required">all the *marks fieldes are required</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    "First Name:"
+                    <span class="required">*</span>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="txtfirst">
+                </td>
+
+                <td>
+                    Payment to be Received Branch :
+                    <span class="required">*</span>
+                </td>
+                <td>
+                    <select class="form-control" id="ddlReceivedBranch">
+                        <option value>Select</option>
+                        <option value="Ahmedabad">Ahmedabad</option>
+                        <option value="Vidhyanagar">Vidhyanagar</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Middle Name:
+                    <span class="required">*</span>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="txtmidle">
+                </td>
+                <td>
+                    Passport Counsellor:
+                    <span class="required">*</span>
+                </td>
+                <td>
+                    <input type="text" value="Dipali Limbachiya" class="form-control" id="Counseller">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Last Name:
+                    <span class="required">*</span>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="txtlast">
+
+                </td>
+                <td>
+                    No. of Application:
+                    <span class="required">*</span>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="application">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Mobile No:
+                    <span class="required">*</span>
+                </td>s
+                <td>
+                    <input type="text" class="form-control" id="txtmobile">
+
+                </td>
+                <td>
+                    Total Amount to be Received:
+                    <span class="required">*</span>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="txtTotle">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Branch:
+                    <span class="required">*</span>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="txtbranch">
+                </td>
+                <td>
+                    Product Head:
+                    <span class="required">*</span>
+                </td>
+                <td>
+                    <input type="text" value="Dipali Limbachiya" class="form-control" id="txtProductHeade">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email:
+                    <span class="required">*</span>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="txtemail">
+                </td>
+                <td>
+                    Shared Counseller:
+                    <span class="required">*</span>
+                </td>
+                <td>
+                    <input type="text" value="Dipali Limbachiya" class="form-control" id="txtShareCounseller">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Remarks:
+                    <span class="required">*</span>
+                </td>
+                <td>
+                    <textarea class="form-control" id="txtRemark"></textarea>
+                </td>
+            </tr>
+            <tr class="sectionheading">
+                <td colspan="4">
+                    "Payment Information (To be filled by Passport Counsellor)
+                </td>
+                <td>
+                    <input type="button" onclick="saveALLData()" class="btn btn-primary" value="Submit" id="btnSaveALL">
+                    <input type="button" onclick="cancelPayment()" class="btn btn-primary" value="Cancel" id="btnCancelALL">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- </div> -->
+    <br>
+    <table class="tlbPreIntake" id="table2" style="width: 100%;">
+
+        <br>
+        <tr>
+            <td colspan="4">
+                <span class="required">all the *marks fieldes are required</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Payment Type:</td>
+            <td>
+                <select class="form-control" id="ddlPaymentType">
+                    <option value="Full">Full</option>
+                    <option value="Part">Part</option>
+                </select>
+            </td>
+            <td>Payment Mode:</td>
+            <td>
+                <input type="text" class="form-control" id="txtPaymentMode" value="Cash">
+            </td>
+        <tr>
+        <tr>
+            <td>Amount Received:</td>
+            <td>
+                <input type="text" class="form-control" id="txtReceivedAmount">
+            </td>
+            <td>Pending Amount:</td>
+            <td>
+                <input type="text" class="form-control" id="txtPendingAmount">
+            </td>
+        </tr>
+        <tr>
+            <td>Amount Received By:</td>
+            <td>
+                <select class="form-control" id="ddlAmountReceived">
+                    <option value="bhoomi Limbachiya">bhoomi Limbachiya</option>
+                    <option value="Pranali Joshi">Pranali Joshi</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Date Received:</td>
+            <td>
+                <input type="date" class="form-control" id="ctldate">
+            </td>
+            <td>Remark:</td>
+            <td>
+                <textarea class="form-control" id="txtremark"></textarea>
+            </td>
+        </tr>
+        <tr class="sectionheading">
+            <td colspan="4">
+                Payment Information (To be filled by Accountant)
+            </td>
+            <td>
+                <input type="button" onclick="saveALLData()" class="btn btn-primary" value="Submit" id="btnSaveALL">
+                <input type="button" onclick="cancelPayment()" class="btn btn-primary" value="Cancel" id="btnCancelALL">
+            </td>
+        </tr>
+
+    </table>
+</body>
+
+</html>

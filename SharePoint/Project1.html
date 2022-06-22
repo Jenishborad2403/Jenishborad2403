@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project sharepoint</title>
+    <script>
+function CreateListItem() {
+    $ajax
+        ({
+            url: _spPageContexInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('New List')/Items",
+            type: "POST",
+            Headers:
+            {
+                "Accept": "application/json;odata=verbose",
+                "Content-Type": "application/json;odata=verbose",
+                "x-RequestDiges": $("#_REQUESTDIGEST").val()
+            },
+            data: JSON.stringify
+                ({
+                    __metadata:
+                    {
+                        type: "SP.Data.New_x0020_List1ListItem"
+                    },
+                    Title: "New Title"
+                }),
+
+            Function(data, status, xhr) {
+                console.log("Success");
+            },
+            Function(xhr, error, error) {
+                console.log("Faild");
+            }
+        });
+}
+        </script>
+</head>
+
+<body>
+    <tr>
+        <Td>
+            <input type="button" name="click Me" onclick="CreateListItem();">
+        </Td>
+    </tr>
+</body>
+
+</html>

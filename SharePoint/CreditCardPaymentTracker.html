@@ -1,0 +1,843 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+	<link type="text/css" rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	<script type="text/javascript" src="https://momentjs.com/downloads/moment.min.js"></script>
+
+
+	<style type="text/css">
+		.bc-search-box {
+			width: 300px;
+		}
+
+		.bc-table {
+			width: 100%;
+			font-size: 12px;
+		}
+
+		.bc-sub-header {
+			font-style: italic;
+			font-size: 14px;
+		}
+
+		.bc-main-header {
+			font-size: 16px;
+		}
+
+		.tblDetails th,
+		.tblDetails td {
+			width: 25%;
+		}
+
+		.non-border {
+			border: none;
+		}
+
+		#DeltaPlaceHolderPageTitleInTitleArea {
+			display: none;
+		}
+
+		#dvDetails {
+			width: 300px;
+		}
+
+		.tlbPreIntake {
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			border-collapse: collapse;
+		}
+
+		.tlbPreIntake td {
+			border: 1px solid #ddd;
+			padding: 8px;
+		}
+
+		.sectionheading {
+			background-color: #ccebff !important;
+			color: #000 !important;
+			font-size: 15px !important;
+		}
+
+		.required {
+			color: red;
+			vertical-align: -webkit-baseline-middle;
+		}
+
+		#chkConfirmed,
+		.tlbPreIntake input[type="checkbox"] {
+			height: 25px;
+		}
+
+		.sectionheading .btn {
+			float: right;
+		}
+	</style>
+</head>
+
+<body>
+
+	<table id="tlbClientInfo" class="tlbPreIntake" style="width: 100%;">
+		<tr class="sectionheading">
+			<td colspan="4"> Payment Information (To be filled by Credit Card user)
+				<input type="button" onclick="cancelPayment()" class="btn btn-primary" value="Cancel"
+					id="btnCancelAll"><input type="button" onclick="saveAllData()" class="btn btn-primary"
+					value="Submit" id="btnSaveAll">
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="4">
+				<span class="required">All the * marked fields are required.</span>
+			</td>
+		</tr>
+		<tr>
+			<td>Requested By: <span class="required">*</span></td>
+			<td>
+				<select class="form-control" id="ddlRequestedBy"></select>
+			</td>
+			<td>Counsellor: </td>
+			<td>
+				<select class="form-control" id="ddlCounsellor"></select>
+			</td>
+		</tr>
+		<tr>
+			<td>Usage Type: <span class="required">*</span></td>
+			<td>
+				<select class="form-control" id="ddlUsageType">
+					<option value="">Select</option>
+					<option value="Client Use">Client Use</option>
+					<option value="Company Use">Company Use</option>
+				</select>
+			</td>			
+		</tr>
+		<tr class="clientTR">
+			<td>First Name: <span class="required">*</span></td>
+			<td>
+				<input type="text" class="form-control" id="txtFirst">
+			</td>
+
+			<td>Middle Name: <span class="required">*</span></td>
+			<td><input type="text" class="form-control" id="txtMiddle"></td>
+		</tr>
+		<tr class="clientTR">
+			<td>Last Name: <span class="required">*</span></td>
+			<td>
+				<input type="text" class="form-control" id="txtLast">
+			</td>
+			<td>Client Registration Branch: </td>
+			<td>
+				<select class="form-control" id="ddlBranch">
+					<option value="">Select</option>
+					<option value="Ahmedabad">Ahmedabad</option>
+					<option value="Vadodara">Vadodara</option>
+					<option value="VVNagar">VVNagar</option>
+					<option value="Mehsana">Mehsana</option>
+				</select>
+			</td>
+		</tr>
+		<tr class="vendorTR">
+			<td>Vendor Name: <span class="required">*</span></td>
+			<td>
+				<select class="form-control" id="ddlVendor">
+					<option value="">Select</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Product: <span class="required">*</span></td>
+			<td>
+				<select class="form-control" id="ddlProduct">
+					<option value="">Select</option>
+					<option value="SV">SV</option>
+					<option value="PR">PR</option>
+					<option value="IELTS">IELTS</option>
+					<option value="VV">VV</option>
+					<option value="Other">Other</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Purpose: <span class="required">*</span></td>
+			<td>
+				<select class="form-control" id="ddlPurpose">
+					<option value="">Select</option>
+					<option value="IELTS Fees">IELTS Fees</option>
+					<option value="WES">WES</option>
+					<option value="ICES">ICES</option>
+					<option value="IQAS">IQAS</option>
+					<option value="CES CANADA PR Fees">CES CANADA PR Fees</option>
+					<option value="University Fees">University Fees</option>
+					<option value="Other">Other</option>
+				</select>
+			</td>
+			<td>Remarks: </td>
+			<td>
+				<textarea class="form-control" id="txtRemarks" placeholder="University Name or Other Comment"></textarea>
+			</td>			
+		</tr>
+		<tr>
+			<td>Exchange Rate: </td>
+			<td>
+				<input type="text" class="form-control" id="txtRate">
+			</td>
+			<td>Transaction Amount (Can$): </td>
+			<td>
+				<input type="text" class="form-control" id="txtAmountInDollar" onkeyup="reflectAmount()">
+			</td>
+		</tr>
+		<tr>
+			<td>Amount To Be Received (INR): </td>
+			<td>
+				<input type="text" class="form-control" id="txtTotalAmount">
+			</td>			
+		</tr>
+		<tr>
+			<td>Amount Received (INR): </td>
+			<td>
+				<input type="text" class="form-control" id="txtReceivedAmount" onkeyup="changeReceivedAmount(this)">
+			</td>
+
+			<td>Proof Attachment: </td>
+			<td>
+				<input type="file" class="form-control" id="attachmentfile">
+			</td>
+		</tr>
+		<tr>		
+			<td>Payment Mode: </td>
+			<td>
+				<select class="form-control" id="ddlPaymentMode">
+					<option value="">Select</option>
+					<option value="CardOrBank">Card/Bank</option>
+					<option value="Cash">Cash</option>
+					<option value="Cheque">Cheque</option>
+					<option value="UPI">UPI</option>
+					<option value="NEFT">NEFT</option>
+					<option value="RTGS">RTGS</option>
+					<option value="IMPS">IMPS</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	
+	<table id="tblApproval" class="tlbPreIntake" style="width: 100%;">
+		<tr class="sectionheading">
+			<td colspan="4">Approval:
+				<input type="button" onclick="cancelPayment()" class="btn btn-primary" value="Cancel"
+					id="btnCancelAll2"><input type="button" onclick="saveAllData()" class="btn btn-primary"
+					value="Submit" id="btnSaveAll2">
+			</td>			
+		</tr>
+		<tr>
+			<td colspan="4">
+				<span class="required">All the * marked fields are required.</span>
+			</td>
+		</tr>
+		<tr>
+			<td>Approved: </td>
+			<td>
+				<input type="checkbox" class="form-control" id="chkApproved">
+			</td>
+		</tr>		
+		<tr>
+			<td>Approved By: </td>
+			<td>
+				<input type="text" class="form-control" id="txtApprovedBy" disabled="disabled"/>
+			</td>
+			
+			<td>Remarks: </td>
+			<td>
+				<textarea class="form-control" id="txtApprovalRemarks"></textarea>
+			</td>
+		</tr>		
+	</table>
+	
+	<table id="tblAccountant" class="tlbPreIntake" style="width: 100%;">
+		<tr class="sectionheading">
+			<td colspan="4">Transaction Detail:
+				<input type="button" onclick="cancelPayment()" class="btn btn-primary" value="Cancel"
+					id="btnCancelAll2"><input type="button" onclick="saveAllData()" class="btn btn-primary"
+					value="Submit" id="btnSaveAll2">
+			</td>
+		</tr>
+		<tr>
+			<td>Transaction Date : </td>
+			<td>
+				<input type="date" class="form-control" id="ctlDate">
+			</td>
+			<td>Credit Card Used By: </td>
+			<td>
+				<select class="form-control" id="ddlCardUsedBy"></select>
+			</td>
+		</tr>
+	</table>
+	
+
+	<table id="tblSenior" class="tlbPreIntake" style="width: 100%;">
+		<tr class="sectionheading">
+			<td colspan="4">Payment Information (To be filled by Head Accountant)
+				<input type="button" onclick="cancelPayment()" class="btn btn-primary" value="Cancel"
+					id="btnCancelAll"><input type="button" onclick="saveAllData()" class="btn btn-primary"
+					value="Submit" id="btnSaveAll">
+			</td>
+		</tr>
+		<tr>
+			<td>Actual Txn Amount (INR): </td>
+			<td>
+				<input type="text" class="form-control" id="txtActualTxnAmount" onkeyup="changeReceivedAmount(this)"/>
+			</td>
+			<td>Difference Amount (INR): </td>
+			<td>
+				<input type="text" class="form-control" id="txtPendingAmountINR" disabled="disabled">
+			</td>
+		</tr>
+		<tr>
+			<td>Remarks: </td>
+			<td>
+				<textarea class="form-control" id="txtProductHeadRemarks"></textarea>
+			</td>
+			<td>Txn Complete: </td>
+			<td>
+				<input type="checkbox" class="form-control" id="chkConfirmed">
+			</td>			
+		</tr>
+	</table>
+	
+
+</body>
+<script type="text/javascript">
+	JSRequest.EnsureSetup()
+	$(document).ready(function () {
+		$('#ctlDate').val(moment().format("YYYY-MM-DD"))
+		$('#txtApprovedBy').val(_spPageContextInfo.userDisplayName);
+		getUserRoles().then(function(result){
+			$.when(bindCounsellor(), getGroups(), bindVendors())
+				.done(function (emps, grps, vnds) {
+					disableSectionBasedOnGroups();
+					setTimeout(bindDetails(), 1500);
+				});
+			setTimeout(function () {
+				SetFullScreenMode(true);
+			}, 2000);
+		})
+		.catch(function(err){console.log(err)});
+		
+		$("#ddlUsageType").change(function () {
+			if (this.value == 'Company Use') {
+				$('.clientTR').hide();
+				$('.vendorTR').show();
+			}
+			else {				
+				$('.clientTR').show();
+				$('.vendorTR').hide();
+			}
+		});
+	});
+	var allUserRoles = [];
+	var lstUserRoles = "User Roles";
+	var allPaymentStages = [];
+	var allEmployees = [];
+	var lstEmployees = "Employee Official Details";
+	var lstPaymentStages = "Program Name";//"Payment Stages";
+	//var lstPaymentTracker = "Payment Tracker";
+	var lstPaymentTracker = "Credit Card Payments";
+	var allVendors = [];
+	var lstVendors = "Vendors";
+
+	var objGroups = { PRCRM: false, ACCOUNTANT: false, HR: false }
+	
+	function bindDetails() {
+		var id = JSRequest.QueryString.PaymentID;
+		if (id) {
+			$.getJSON(_spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + lstPaymentTracker + "')/items?$filter=ID eq " + id,
+				function (data) {
+					if (data.value.length > 0) {
+						var item = data.value[0];
+						$('#txtFirst').val(item.Title);
+						$('#txtMiddle').val(item.MiddleName);
+						$('#txtLast').val(item.LastName);
+
+						$('#txtTotalAmount').val(item.TotalAmount);
+						$('#txtReceivedAmount').val(item.ReceivedAmount);
+
+						$('#txtRate').val(item.Rate);
+						$('#txtAmountInDollar').val(item.AmountInDollar);
+						$('#ddlPaymentMode').val(item.PaymentMode);
+						$('#ddlCounsellor').val(item.CounsellorId);
+
+						$('#ctlDate').val(moment(item.Date).format("YYYY-MM-DD"));
+
+						$('#chkConfirmed').prop('checked', item.Confirmed);
+						$('#chkApproved').prop('checked', item.Approved);
+						$('#chkTxnCompleted').prop('checked', item.TxnCompleted);
+						$('#txtRemarks').val(item.Remarks);
+						$('#ddlProduct').val(item.Product);
+						$('#ddlPurpose').val(item.Purpose);
+						$('#ddlBranch').val(item.Branch);
+						$('#txtAccountantRemarks').val(item.AccountantRemarks);
+						$('#txtProductHeadRemarks').val(item.ProductHeadRemarks);
+						$('#ddlCardUsedBy').val(item.CardUsedById);
+
+						$('#txtPendingAmountINR').val(item.PendingAmountINR);
+						
+						$('#txtActualTxnAmount').val(item.ActualTxnAmount);
+						$('#ddlRequestedBy').val(item.RequestedById);
+						$('#ddlUsageType').val(item.UsageType).change();
+						$('#ddlVendor').val(item.VendorId);
+						$('#txtApprovalRemarks').val(item.ApprovalRemarks);
+
+					}
+				},
+				function (err) { console.log(err) });
+		}
+
+	}
+	
+
+	function disableSectionBasedOnGroups() {
+		if (!objGroups.PRCRM && !objGroups.ACCOUNTANT) {
+			$('#tlbClientInfo input').prop('disabled', true)
+			$('#tlbClientInfo select').prop('disabled', true)
+			$('#tlbClientInfo textarea').prop('disabled', true)
+		}
+		if (!objGroups.ACCOUNTANT) {
+			$('#tblAccountant input').prop('disabled', true)
+			$('#tblAccountant select').prop('disabled', true)
+			$('#tblAccountant textarea').prop('disabled', true)
+		}
+		if (!objGroups.PRCRM && !objGroups.ACCOUNTANT) {
+			$('#btnSaveAll').prop('disabled', true)
+			$('#btnCancelAll').prop('disabled', true)
+		}
+		if (!objGroups.HR) {
+			$('#tlbIncentive input').prop('disabled', true)
+			$('#tlbIncentive select').prop('disabled', true)
+			$('#tlbIncentive textarea').prop('disabled', true)
+		}
+		
+	}
+	
+	function reflectAmount() {
+		if (event.target.id == "txtAmountInDollar") {
+			if (event.target.value != "" && $('#txtRate').val().length > 0 && parseFloat($('#txtRate').val()) > 0) {
+				var totalAmt = Math.round(parseFloat($('#txtAmountInDollar').val()) * parseFloat($('#txtRate').val()));
+				$('#txtTotalAmount').val(totalAmt)
+			}
+			else {
+				//$('#txtTotalAmount').val(0)
+			}
+		}
+		if (event.target.id == "txtTotalAmount") {
+			if (event.target.value != "" && $('#txtRate').val().length > 0 && parseFloat($('#txtRate').val()) > 0) {
+				var totalAmt = Math.round(parseFloat($('#txtTotalAmount').val()) / parseFloat($('#txtRate').val()));
+				$('#txtAmountInDollar').val(totalAmt)
+			}
+			else {
+				//$('#txtAmountInDollar').val(0)
+			}
+		}
+		
+		var isChecked = $('#chkCHQSystem').is(':checked');
+		if(isChecked){
+			var txtTotalAmount = parseFloat($('#txtTotalAmount').val() == '' ? 0 : $('#txtTotalAmount').val())
+			var txtAmountInDollar = parseFloat($('#txtAmountInDollar').val() == '' ? 0 : $('#txtAmountInDollar').val())
+			$('#txtNetAmount').val(txtTotalAmount - txtAmountInDollar);
+		}
+	}
+	function changeReceivedAmount(ctl) {
+		
+		
+		var rate = parseFloat($('#txtRate').val() == '' ? 0 : $('#txtRate').val())
+		
+		var ata = parseFloat($('#txtActualTxnAmount').val() == '' ? 0 : $('#txtActualTxnAmount').val())
+		var ra = parseFloat($('#txtReceivedAmount').val() == '' ? 0 : $('#txtReceivedAmount').val())
+		var pendingINR = Math.round(ra - ata);
+		$("#txtPendingAmountINR").val(pendingINR);		
+	}
+	function bindVendors() {
+		return new Promise((resolve, reject) => {
+			var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + lstVendors + "')/items?" +
+				"$select=ID,Title";
+			$.getJSON(url,
+				function (data) {
+					allVendors = data.value;					
+					var optCUB = "<option value=''>Select</option>";
+					allVendors.forEach(function (emp) {
+						optCUB += "<option value='" + emp.ID + "'>" + emp.Title + "</option>";
+					});
+					$('#ddlVendor').html(optCUB);
+					resolve(allVendors);
+				},
+				function (err) { console.log(err); reject(err); });
+		});
+	}
+
+	function bindCounsellor() {
+		return new Promise((resolve, reject) => {
+			var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + lstEmployees + "')/items?" +
+				"$select=ID,Title,OfficialMail,PersonalMail,Department/ID,Department/Title,Designation/ID,Designation/Title,Role/ID,Role/Title,Branch/ID,Branch/Title&$expand=Department,Designation,Branch,Role" +
+				"&$filter=IsActive eq 1";
+			$.getJSON(url,
+				function (data) {
+					$('#ddlCounsellor').html('');
+
+					allEmployees = data.value;
+					var objCurrentUser = allEmployees.find(x => x.OfficialMail == _spPageContextInfo.userEmail || x.PersonalMail == _spPageContextInfo.userEmail);
+
+					allEmployees.sort(function (a, b) {
+						if (a.Branch.Title.toLowerCase() < b.Branch.Title.toLowerCase()) {
+							return -1;
+						} else if (a.Branch.Title.toLowerCase() > b.Branch.Title.toLowerCase()) {
+							return 1;
+						} else {
+							return 0;
+						}
+					});
+					var opt = "<option value=''>Select</option>";
+					
+					var section = "PR";
+					var councRoles = allUserRoles.filter(x => 
+						(x.Role && x.Role.Title.toLowerCase().indexOf('counsellor') >= 0)
+						|| (x.Role && x.Role.Title.toLowerCase().indexOf('director') >= 0)
+					);
+					var counsellors = allEmployees.filter(v => councRoles.map(p=>p.Employee.ID).includes(v.ID) )
+					counsellors.forEach(function (emp) {
+						opt += "<option value='" + emp.ID + "'>" + emp.Branch.Title + " - " + emp.Title + "</option>";
+					});
+					$('#ddlCounsellor').html(opt);
+
+					
+
+					var optARB = "<option value=''>Select</option>";
+					var arbRoles = allUserRoles.filter(x => 
+						(x.Role && x.Role.Title.toLowerCase().indexOf('counsellor') >= 0)
+						|| (x.Role && x.Role.Title.toLowerCase().indexOf('accountant') >= 0)
+						|| (x.Role && x.Role.Title.toLowerCase().indexOf('director') >= 0)
+					);
+					var allARBs = allEmployees.filter(v => arbRoles.map(p=>p.Employee.ID).includes(v.ID) )
+					allARBs.forEach(function (emp) {
+						optARB += "<option value='" + emp.ID + "'>" + emp.Title + "</option>";
+					});
+					$('#ddlRequestedBy').html(optARB);
+					
+					var optCUB = "<option value=''>Select</option>";
+					var allCUBs = allEmployees;
+					allCUBs.forEach(function (emp) {
+						optCUB += "<option value='" + emp.ID + "'>" + emp.Title + "</option>";
+					});
+					$('#ddlCardUsedBy').html(optCUB);
+					resolve(allEmployees);
+				},
+				function (err) { console.log(err); reject(err); });
+		});
+	}
+	function saveAllData() {
+		var isValidData = isFormValid();
+		if (!isValidData) {
+			return false;
+		}
+
+		var itemType = getItemTypeForListName(lstPaymentTracker);
+		var item = { "__metadata": { "type": itemType } };
+		item.Title = $('#txtFirst').val();
+		item.MiddleName = $('#txtMiddle').val();
+		item.LastName = $('#txtLast').val();
+		item.PaymentMode = $('#ddlPaymentMode').val();
+		item.Date = $('#ctlDate').val();
+		item.CounsellorId = $('#ddlCounsellor').val() == '' ? null : $('#ddlCounsellor').val();
+		item.CardUsedById = $('#ddlCardUsedBy').val() == '' ? null : $('#ddlCardUsedBy').val();
+
+		item.TotalAmount = $('#txtTotalAmount').val().length > 0 ? $('#txtTotalAmount').val() : 0;
+		item.ReceivedAmount = $('#txtReceivedAmount').val().length > 0 ? $('#txtReceivedAmount').val() : 0;
+		item.Rate = $('#txtRate').val().length > 0 ? $('#txtRate').val() : 0;
+		item.AmountInDollar = $('#txtAmountInDollar').val().length > 0 ? $('#txtAmountInDollar').val() : 0;
+
+
+		item.Confirmed = $('#chkConfirmed').is(':checked');
+		item.Approved = $('#chkApproved').is(':checked');
+		item.TxnCompleted = $('#chkTxnCompleted').is(':checked');
+		
+		item.Remarks = $('#txtRemarks').val();
+		item.Product = $('#ddlProduct').val();
+		item.Purpose = $('#ddlPurpose').val();
+		item.Branch = $('#ddlBranch').val();
+		item.ApprovalRemarks = $('#txtApprovalRemarks').val();
+		item.ProductHeadRemarks = $('#txtProductHeadRemarks').val();
+		
+		item.PendingAmountINR = $('#txtPendingAmountINR').val();
+		//item.PendingAmountDollar = ($('#txtPendingAmountDollar').val() == "NaN" || $('#txtPendingAmountDollar').val() == "Infinity" ? "0" :$('#txtPendingAmountDollar').val());
+		item.ActualTxnAmount = $('#txtActualTxnAmount').val();
+		item.RequestedById = $('#ddlRequestedBy').val() == '' ? null : $('#ddlRequestedBy').val();
+		item.UsageType = $('#ddlUsageType').val();
+		item.VendorId = $('#ddlVendor').val() == '' ? null : $('#ddlVendor').val();
+
+		var id = JSRequest.QueryString.PaymentID;
+		if (id) {
+			$.ajax({
+				url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + lstPaymentTracker + "')/items/getbyid(" + id + ")",
+				type: "POST",
+				contentType: "application/json;odata=verbose",
+				data: JSON.stringify(item),
+				headers: {
+					"Accept": "application/json;odata=verbose",
+					"X-RequestDigest": $("#__REQUESTDIGEST").val(),
+					"If-Match": "*",
+					"X-HTTP-Method": "MERGE"
+				},
+				success: function (data) {					
+					//assignCustomPermissions(id)
+					if ($("#attachmentfile")[0].files.length > 0) {
+						uploadattachment(id, lstPaymentTracker).then(function(){
+							toastr.success('Data saved successfully.')
+							SP.UI.ModalDialog.commonModalDialogClose(SP.UI.DialogResult.OK)
+						});
+					}
+					else{					
+						toastr.success('Data saved successfully.')
+						SP.UI.ModalDialog.commonModalDialogClose(SP.UI.DialogResult.OK)
+						//window.location = "CreditCardPayments.aspx";
+					}
+				},
+				error: function (data) {
+					toastr.error('Error occurred while saving data.')
+					console.log(data);
+				}
+			});
+		}
+		else {
+			//add item
+			$.ajax({
+				url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + lstPaymentTracker + "')/items",
+				type: "POST",
+				contentType: "application/json;odata=verbose",
+				data: JSON.stringify(item),
+				headers: {
+					"Accept": "application/json;odata=verbose",
+					"X-RequestDigest": $("#__REQUESTDIGEST").val()
+				},
+				success: function (data) {
+					//assignCustomPermissions(data.d.ID)
+					if ($("#attachmentfile")[0].files.length > 0) {
+						uploadattachment(id, lstPaymentTracker).then(function(){
+							toastr.success('Data saved successfully.')
+							window.location = "CreditCardPayments.aspx";
+						});
+					}
+					else{					
+						toastr.success('Data saved successfully.')
+						window.location = "CreditCardPayments.aspx";
+					}
+					
+				},
+				error: function (data) {
+					toastr.error('Error occurred while saving data.')
+					console.log(data);
+				}
+			});
+		}
+
+	}
+	function getItemTypeForListName(name) {
+		//return "SP.Data." + name.charAt(0).toUpperCase() + name.split(" ").join("").slice(1) + "ListItem";
+		return "SP.Data.CreditCardPaymentsListItem";
+	}
+
+	function isFormValid() {
+		var isValid = true;
+		
+		if ($('#ddlRequestedBy').val().length == 0) {
+			toastr.error('Please select Requested By.')
+			isValid = false;
+		}
+		if ($('#ddlUsageType').val().length == 0) {
+			toastr.error('Please select Usage Type.')
+			isValid = false;
+		}
+		
+		if ($('#ddlUsageType').val() == 'Client Use' && $('#txtFirst').val().length == 0) {
+			toastr.error('Please fill First Name.')
+			isValid = false;
+		}
+		if ($('#ddlUsageType').val() == 'Client Use' && $('#txtMiddle').val().length == 0) {
+			toastr.error('Please fill Middle Name.')
+			isValid = false;
+		}
+		if ($('#ddlUsageType').val() == 'Client Use' && $('#txtLast').val().length == 0) {
+			toastr.error('Please fill Last Name.')
+			isValid = false;
+		}
+		
+		if ($('#ddlUsageType').val() == 'Company Use' && $('#ddlVendor').val().length == 0) {
+			toastr.error('Please select Vendor.')
+			isValid = false;
+		}
+		
+		if ($('#ddlProduct').val().length == 0) {
+			toastr.error('Please select Product.')
+			isValid = false;
+		}
+
+		if ($('#ddlPurpose').val().length == 0) {
+			toastr.error('Please select Purpose.')
+			isValid = false;
+		}
+		
+		
+		return isValid;
+	}
+
+	function assignCustomPermissions(itemID) {
+		var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + lstPaymentTracker + "')/getItemById(" + itemID + ")/breakroleinheritance";
+		$.ajax({
+			url: requestUri,
+			type: "POST",
+			headers: {
+				"Accept": "application/json;odata=verbose",
+				"X-RequestDigest": $("#__REQUESTDIGEST").val()
+			},
+			success: function (data) {
+				var objCurrentUser = allEmployees.find(x => x.OfficialMail == _spPageContextInfo.userEmail || x.PersonalMail == _spPageContextInfo.userEmail);
+				var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/sitegroups?$select=Id,Title&$filter=Title eq 'HR'";
+				if (objCurrentUser.Branch) {
+					url += " or Title eq '" + objCurrentUser.Branch + " Branch'";
+				}
+				$.getJSON(url,
+					function (result) {
+						var requests = [];
+						for (var j = 0; j < result.value.length; j++) {
+							requests.push(
+								$.ajax({
+									url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + lstPaymentTracker + "')/getItemById(" + itemID + ")/roleassignments/addroleassignment (principalid=" + result.value[j].Id + ", roleDefId=1073741829)",
+									type: "POST",
+									headers: { "Accept": "application/json;odata=verbose", "X-RequestDigest": $("#__REQUESTDIGEST").val() },
+									success: function (data) { },
+									error: function (data) { }
+								})
+							);
+						}
+						$.when.apply(undefined, requests).then(function (res) {
+							console.log(arguments)
+							toastr.success('Permissions applied successfully.')
+							SP.UI.ModalDialog.commonModalDialogClose(SP.UI.DialogResult.OK)
+							window.location = "CreditCardPayments.aspx";
+						})
+
+
+					},
+					function (error) { });
+
+
+			},
+			error: function (data) {
+
+				console.log(data);
+			}
+		});
+	}
+
+	function cancelPayment() {
+		if (window.location.search.match("[?&]IsDlg=1")) {
+			SP.UI.ModalDialog.commonModalDialogClose(SP.UI.DialogResult.Cancel)
+		}
+		else {
+			window.location = "CreditCardPayments.aspx";
+		}
+	}
+
+	function getGroups() {
+		return new Promise((resolve, reject) => {
+			$.getJSON(_spPageContextInfo.webAbsoluteUrl + "/_api/web/CurrentUser/groups?$select=Id,Title&$filter=Title eq 'PR-CRM' or Title eq 'Accounts Members' or Title eq 'Accounts Head' or Title eq 'HR'",
+				function (data) {
+					if (data.value.length > 0) {
+						var objPRCRM = data.value.find(g => g.Title == 'PR-CRM')
+						if (objPRCRM) {
+							objGroups.PRCRM = true;
+						}
+						var objAccountant = data.value.find(g => g.Title == 'Accounts Members')
+						if (objAccountant) {
+							objGroups.ACCOUNTANT = true;
+						}
+						var objAccHead = data.value.find(g => g.Title == 'Accounts Head')
+						if (!objAccHead) {
+							$('#chkConfirmed').prop('disabled', true);
+						}
+						var objHR = data.value.find(g => g.Title == 'HR')
+						if (objHR) {
+							objGroups.HR = true;
+						}
+					}
+					resolve(objGroups);
+				},
+				function (err) { console.log(err); reject(err); }
+			);
+		});
+	}
+
+	function getUserRoles() {
+		return new Promise((resolve, reject) => {
+			var query="?$select=Employee/ID,Employee/Title,Role/ID,Role/Title,Department/ID,Department/Title&$expand=Employee,Role,Department";
+			$.getJSON(_spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + lstUserRoles + "')/items" + query,
+				function (data) {
+					allUserRoles = data.value;
+					resolve(allUserRoles);					
+				},
+				function (err) { console.log(err);reject(err); }
+			);
+		});
+	}
+	
+var getFileBuffer = function (file) {
+    var deferred = $.Deferred();
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        deferred.resolve(e.target.result);
+    }
+    reader.onerror = function (e) {
+        deferred.reject(e.target.error);
+    }
+    reader.readAsArrayBuffer(file);
+    return deferred.promise();
+};
+
+
+function uploadattachment(id, listname) {
+	return new Promise((resolve, reject) => {
+	    if ($("#attachmentfile")[0].files.length > 0) {
+	        var file = $("#attachmentfile")[0].files[0];
+	        getFileBuffer(file).then(function (buffer) {
+	            $.ajax({
+	                url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + listname + "')/items(" + id + ")/AttachmentFiles/add(FileName='" + file.name + "')",
+	                method: 'POST',
+	                data: buffer,
+	                processData: false,
+	                headers: {
+	                    "Accept": "application/json; odata=verbose",
+	                    "content-type": "application/json; odata=verbose",
+	                    "X-RequestDigest": document.getElementById("__REQUESTDIGEST").value
+	                },
+	                success: function () {
+						resolve(1)
+	                },
+	                error: function (data) {
+						reject(data)
+	                }
+	            });
+	        });
+	    }
+	    else{
+	    	resolve(1);
+	    }
+	});
+}
+</script>
+
+</html>

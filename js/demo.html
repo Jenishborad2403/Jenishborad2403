@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharePoint site page Edit</title>
+    <!--scripted part-->
+    <script>
+        function validationForm() {
+            let x = document.forms['myFrom']['Fname'].value;
+            if (x == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+        }
+    </script>
+</head>
+<!--HTML Part-->
+
+<body>
+    <form name="myFrom" onsubmit="return validationForm()" method="post">
+        <label for="Fname">first name:</label><br>
+        <input type="text" id="Fnmae" name="Fnmae"><br>
+        <label for="Lname">Last nmae:</label><br>
+        <input type="text" id="Lnmae" name="Lnmae"><br>
+        <input type="Submit" value="Submit">
+    </form>
+</body>
+
+</html>
