@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="first" name="first" step="any" />
+    <select id="opt">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+    <input type="number" id="second" name="second" step="any" />
+    <br /><br />
+    <button onclick="cal()">Calculater</button>
+    <input type="text" name="" id="res" readonly="" />
+  </body>
+  <script type="text/javascript">
+    function cal() {
+      var opr1 = document.getElementById("first").value;
+      var opr2 = document.getElementById("second").value;
+      var opt = document.getElementById("opt").value;
+      if (opt == "+") {
+        var res = parseInt(opr1) + parseInt(opr2);
+      }
+      if (opt == "-") {
+        var res = parseInt(opr1) - parseInt(opr2);
+      }
+      if (opt == "*") {
+        var res = parseInt(opr1) * parseInt(opr2);
+      }
+      if (opt == "/") {
+        var res = parseInt(opr1) / parseInt(opr2);
+      }
+      if (opt == "%") {
+        var res = parseInt(opr1) % parseInt(opr2);
+      }
+      document.getElementById("res").value = res;
+      //alert(res);
+    }
+  </script>
+</html>

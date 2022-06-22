@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Tutorial</title>
+  </head>
+  <body>
+    <!-- <h2>0</h2>
+    <div id="main" class="Test">Walcome To JS Tutorial</div>
+    <h3>1</h3>
+    <div id="main" class="Test">This Is Dom Element Example</div>  -->
+    <!-- <div><h2>Arithmetic Divison:</h2>
+      <h2>Addition:</h2>
+      <div id="result0"></div>
+      <br />
+      <h2>Subtraction:</h2>
+      <div id="result1"></div>
+      <br />
+      <h2>Multiplication:</h2>
+      <div id="result2"></div>
+      <br />
+      <h2>Divison:</h2>
+      <div id="result3"></div>
+      <br />
+      <h2>Moduls:</h2>
+      <div id="result4"></div>
+      <br />
+      <h2>Increment:</h2>
+      <div id="result5"></div>
+      <br />
+      <h2>Decrement:</h2>
+      <div id="result6"></div>
+    </div> -->
+
+    <!-- <div><h2> Comparison Divison:</h2>
+      <h2>equal: 12 == 10 </h2>
+      <div id="result0"></div>
+      <br />
+      <h2>Not Equal: 15 != 16 </h2>
+      <div id="result1"></div>
+      <br />
+      <h2>grater: 45 > 46</h2>
+      <div id="result2"></div>
+      <br />
+      <h2>less: 12 < 23 </h2>
+      <div id="result3"></div>
+      <br />
+      <h2>Grater Then Equal: 47 >= 12</h2>
+      <div id="result4"></div>
+      <br />
+      <h2>Less Then Equal: 12 <= 47</h2>
+      <div id="result5"></div>
+      <br />
+      <div id="result6"></div>
+    </div>  -->
+    
+    <!-- <div> <h1>Logical And Ternary Divison:</h1>
+      <h2>&&&& End Operation &&&&</h2>
+      <h2>false && false:</h2>
+      <div id="re0"></div>
+      <br />
+      <h2>false && true:</h2>
+      <div id="re0.1"></div>
+      <br />
+      <h2>true && true:</h2>
+      <div id="re0.2"></div>
+      <br />
+      <h2>true && False:</h2>
+      <div id="re0.3"></div>
+      <br />
+      <h2>|||||| OR Operator ||||||</h2>
+      <h2>false || false:</h2>
+      <div id="re1"></div>
+      <br />
+      <h2>false || true:</h2>
+      <div id="re1.1"></div>
+      <br />
+      <h2>true || true:</h2>
+      <div id="re1.2"></div>
+      <br />
+      <h2>true || False:</h2>
+      <div id="re1.3"></div>
+      <br />
+      <h2>Conditon In Yes No: 10>15</h2>
+      <div id="re2"></div>
+    </div> -->
+    
+  </body>
+  <script type="text/Javascript">
+        // ########### Function Of JS  ##############
+
+        // alert("Hello")
+        // console.log("Welcome To Javascript Tutorial");
+        // confirm("Log In To JS Tutorial");
+        // document.write("This Is Document.write Function");
+        // prompt("hello","JS Tutorial");
+
+    // ###############   variable in js    #################################
+
+        // var id;
+        // id = "J.Borad";
+        // var id = "J";
+        // var Id = ".borad";
+
+        // alert(id );
+
+    // ############## Dom Element Examples:########################
+
+        // var A = document.getElementById("main");
+        // console.log(A);
+
+        // document.getElementById("main").innerHTML = "<h1> Welcome To JS Tutorial </h1>";
+
+        // var B = document.getElementsByClassName("Test");
+        // console.log(B);
+
+        // var C = document.getElementsByClassName("Test")[1].innerHTML;
+        // alert(C);
+
+        // document.getElementsByClassName("Test")[0].innerHTML="This Is Dom Element Example";
+        // document.getElementsByClassName("Test")[1].innerHTML="Walcome To JS Tutorial";
+
+       // ############## String Concatenation:########################
+
+      //  var A = " Borad";
+      //  var B = " Jenish";
+      //  var C = "Welcome To Js Tutorial" + A + B;
+      //  alert(C);
+      //  console.log(C);
+
+      //  var a = "J" + "B";
+      //  console.log(a);
+
+      //  var b = "3" + "3";
+      //  console.log(b);
+  </script>
+  <script type="text/Javascript">
+         //############### Types Of Operator:#########
+
+    //     //1. Arithmetic operator: [+(Addition) , -(Subtraction) , *(Multiplication) , /(Divison) , %(Moduls) , ++(Increment) , --(Decrement)]
+    //        //Addition:
+    //       var a = 4;
+    //       var b = 6;
+    //       var c = a + b;
+    //       // document.write(" Addition:").getElementById.innerHTML=c;
+    //       document.getElementById("result0").innerHTML= c;
+    //       // Subtraction:
+    //       var A = 4;
+    //       var B = 6;
+    //       var C = a - b;
+    //       document.getElementById("result1").innerHTML= C;
+    //       // Multiplication:
+    //       var q = 4;
+    //       var w = 6;
+    //       var e = q * w;
+    //       document.getElementById("result2").innerHTML= e;
+    //       // Divison:
+    //       var Q = 50;
+    //       var W = 2;
+    //       var E = Q / W;
+    //       document.getElementById("result3").innerHTML= E;
+    //       // Moduls:
+    //       var R = 5100;
+    //       var T = 10;
+    //       var Y = R % T;
+    //       document.getElementById("result4").innerHTML= Y;
+    //       // Increment:
+    //       var f = 4;
+    //       f ++ ;
+    //       document.getElementById("result5").innerHTML= f;
+    //       // Decrement:
+    //       var F = 4;
+    //       F --;
+    //       document.getElementById("result6").innerHTML= F;
+    //     //#########################################################
+
+    //     //2. Comparison Operator :[==(equal),!=(NotEqual),>(grater),<(less),>=(GraterEqual),<=(lessEqual),]
+    //     // equal
+    //     var a =12;
+    //     var b =10;
+    //     var c = a == b ;
+    //      document.getElementById("result0").innerHTML= c;
+    //     //  NotEqual;
+    //     var A =15  ;
+    //     var B =16  ;
+    //     var C = A != B;
+    //     document.getElementById("result1").innerHTML= C;
+    //     // grater:
+    //     var d =45  ;
+    //     var e =46  ;
+    //     var f = d > e;
+    //     document.getElementById("result2").innerHTML= f;
+    //     // less:
+    //     var D =12  ;
+    //     var E = 23 ;
+    //     var F = D < E ;
+    //     document.getElementById("result3").innerHTML= F;
+    //     // Grater Then Equal:
+    //     var g = 47 ;
+    //     var h = 12 ;
+    //     var i = g >= h ;
+    //     document.getElementById("result4").innerHTML= i;
+    //     // Less Then Equal:
+    //     var G = 12 ;
+    //     var H = 47 ;
+    //     var I = G >= H ;
+    //     document.getElementById("result5").innerHTML= I;
+    //     //#########################################################
+
+    //   // 3. Logical And Ternary Operator[&&(and),||(OR),Conditon(true,false)]
+    //   // AND Operator:
+    //   var a = false;
+    //   var b = false;
+    //   var c = a&&b;
+    //   document.getElementById("re0").innerHTML=c;
+
+    //   var A = false; // 0 = false
+    //   var B = true;  // 1 = true
+    //   var C = A&&B;
+    //   document.getElementById("re0.1").innerHTML=C;
+
+    //   var d = true;
+    //   var e = true;
+    //   var f = d&&e;
+    //   document.getElementById("re0.2").innerHTML=f;
+
+    //   var D = true;
+    //   var E= false;
+    //   var F = D&&E;
+    //   document.getElementById("re0.3").innerHTML=F;
+    //   // OR Operator:
+    //   var aa = false;
+    //   var bb = false;
+    //   var cc = aa||bb;
+    //  document.getElementById("re1").innerHTML=cc;
+
+    //   var AA = false; // 0 = false
+    //   var BB = true;  // 1 = true
+    //   var CC = AA||BB;
+    //   document.getElementById("re1.1").innerHTML=CC;
+
+    //   var dd = true;
+    //   var ee = true;
+    //   var ff = dd||ee;
+    //   document.getElementById("re1.2").innerHTML=ff;
+
+    //   var DD = true;
+    //   var EE= false;
+    //   var FF = DD||EE;
+    //   document.getElementById("re1.3").innerHTML=FF;
+
+    //   var age = 26;
+    //   var result = (age >= 21) ? "Beer" : "Juice";
+    //   console.log(result);
+    // // #########################################################
+
+    // // 4. Assignment Operator[=(Simple Assig),+=(Add Assig),-+(Minus Assig),*=(Multi Assig),/=(Divided Assig),%=(Modual Assig)]
+  
+    //   var A = 13;
+    //   var B ;
+    //   B = A ;
+    //   console.log(B);
+
+    //   var a = 12;
+    //   var b = 10;
+    //   var c = 15;
+    //   b += a;   //10+12
+    //   c -= b;    //15-22
+    //   console.log(b,c)
+      
+    //   var d = 15;
+    //   var s = 2;
+    //   var f = 10;
+    //   s *= d ; //s=30
+    //   s /= f ;  // s = 3
+    //   d *= f ;  // d=150
+    //   s %= d ;  //  s=3 
+    //   console.log(s,d)
+      
+
+</script>
+</html>
