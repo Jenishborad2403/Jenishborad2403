@@ -1,0 +1,12 @@
+https://outsourceindia.sharepoint.com/sites/OSI/hrprivate/QualityCompliance/SiteAssets/project.js
+
+
+https://outsourceindia.sharepoint.com/sites/OSI/hrprivate/QualityCompliance/SiteAssets/project.html
+
+
+https://outsourceindia.sharepoint.com/sites/OSI/hrprivate/QualityCompliance///_api/web/lists/getbytitle('Project')?$select=ListItemEntityTypeFullName
+
+
+
+SP.Data.ProjectListItem
+https://outsourceindia.sharepoint.com/sites/OSI/Style Library/OSI/VVN1/JournalDashboard.html

@@ -1,0 +1,166 @@
+https://outsourceindia.sharepoint.com
+
+        input[type=text]{
+            width: 40%;
+            margin-left: 30px;
+        }
+        input[type=number]{
+            width: 40%;
+            margin-left: 5%;
+
+        }
+        input[type=email]{
+            width: 40%;
+            margin-left: 10%;
+
+        }
+
+
+
+btn css
+    margin-top: 15px;
+    color: black;
+    font-weight: bold;
+    width: 20%;
+    display: inline;
+<head>
+	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	<script type="text/javascript" src="https://momentjs.com/downloads/moment.min.js"></script>
+
+
+	<style type="text/css">
+		.bc-search-box {
+			width: 300px;
+		}
+
+		.bc-table {
+			width: 100%;
+			font-size: 12px;
+		}
+
+		.bc-sub-header {
+			font-style: italic;
+			font-size: 14px;
+		}
+
+		.bc-main-header {
+			font-size: 16px;
+		}
+
+		.tblDetails th,
+		.tblDetails td {
+			width: 25%;
+		}
+
+		.non-border {
+			border: none;
+		}
+
+		#DeltaPlaceHolderPageTitleInTitleArea {
+			display: none;
+		}
+
+		#dvDetails {
+			width: 300px;
+		}
+
+		.tlbPreIntake {
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			border-collapse: collapse;
+		}
+
+		.tlbPreIntake td {
+			border: 1px solid #ddd;
+			padding: 8px;
+		}
+
+		.sectionheading {
+			background-color: #ccebff !important;
+			color: #000 !important;
+			font-size: 15px !important;
+		}
+
+		.required {
+			color: red;
+			vertical-align: -webkit-baseline-middle;
+		}
+
+		#chkConfirmed,
+		.tlbPreIntake input[type="checkbox"] {
+			height: 25px;
+		}
+
+		.sectionheading .btn {
+			float: right;
+		}
+	</style>
+</head>
+
+______________________________________________________________________________________________________________________
+######### [Passport Receivable] #########
+______________________________________________________________________________________________________________________
+Payment Information (To be filled by Passport Counsellor)
+
+First Name:
+Middle Name:
+Last Name:
+Mobile No:
+Branch:
+Email:
+Payment to be Received Branch :Ahmedabad, Vidhyanagar
+Passport Counsellor: Dipali Limbachiya
+No. of Application:
+Total Amount to be Received:
+Product Head : Dipali Limbachiya
+Shared Counsellor : Dipali Limbachiya
+Remarks:
+
+Payment Information (To be filled by Accountant)
+
+Payment Type: Full, Part
+Payment Mode: Cash
+Amount Received:
+Pending Amount:
+Amount Received By : bhoomi Limbachiya, Pranali Joshi
+Date Received :
+Remark:
+
+Payment Information (To be filled by Head Accountant)
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+
+ 1st css http://maxcdn.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css =--> from PaymentTracker.html
+
+2nd css https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css ---> from bootstrap
+_______________________________________________________________________________________________________________________
+##################################################
+PAyment TRacker url
+https://outsourceindia.sharepoint.com/sites/OSI/hrprivate/SitePages/
+PaymentTracker.aspx?OR=Teams-HL&CT=1653027720515&params=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMjA0MDExMTQxMyJ9&PageView=Shared&InitialTabId=Ribbon.WebPartPage&VisibilityContext=WSSWebPartPage
+
+##################################################
+                  [ content Link ]
+!!!!!!!!!!!!!!!    ../../Style Library/OSI/PaymentTracker.html     !!!!!!!!!!!!!!!!!!!!
+____________________________________________________________________________________________________
+##################################################
+---------------------------------------------------------------------------------------------------------------------------
+
+
+CAtloge mage URL
+
+/_layouts/15/images/mscontl.gif
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">

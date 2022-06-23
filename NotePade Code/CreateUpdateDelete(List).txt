@@ -1,0 +1,173 @@
+<!-- ###############################################
+Create List Using Rest API in SharePoint
+###############################################-->
+<html> 
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#btnClick").click(function () {
+                var title = $("#txtTitle").val();
+                var description = $("#txtDescription").val();
+                var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists";
+                $.ajax({
+                    url: requestUri,
+                    type: "POST",
+                    data: JSON.stringify({ '__metadata': { 'type': 'SP.List' }, 'AllowContentTypes': true, 'BaseTemplate': 100, 'ContentTypesEnabled': true, 'Description': description, 'Title': title }),
+                    headers: {
+                        "accept": "application/json;odata=verbose",
+                        "content-type": "application/json;odata=verbose",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                    },
+                    success: onSuccess,
+                    error: onError
+                });
+                function onSuccess(data) {
+                    alert('List Created Successfully !');
+                }
+                function onError(error) {
+                    alert(JSON.stringify(error));
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h2>Create SharePoint List using Rest API in SharePoint Online or SharePoint 2016/2013</h2>
+    <br />
+    <table>
+        <tr>
+            <td>Enter List Title:</td>
+            <td><input type="text" id="txtTitle" size="40" /></td>
+        </tr>
+        <tr>
+            <td>Enter List Description:</td>
+            <td><textarea rows="4" cols="50" id="txtDescription"></textarea></td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="button" id="btnClick" value="Create List using Rest API" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+<!-- ################################################################################
+Update List using Rest API
+##################################################################################-->
+
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#btnClick3").click(function () {
+                var oldtitle = $("#txtOldTitle").val();
+                var newtitle = $("#txtNewTitle").val();
+                var newdescription = $("#txtNewDescription").val();
+                var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle(" + "'" + oldtitle + "'" + ")";
+                $.ajax({
+                    url: requestUri,
+                    type: "POST",
+                    data: JSON.stringify({ '__metadata': { 'type': 'SP.List' }, 'Description': newdescription, 'Title': newtitle }),
+                    headers: {
+                        "X-HTTP-Method": "MERGE",
+                        "accept": "application/json;odata=verbose",
+                        "content-type": "application/json;odata=verbose",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                        "IF-MATCH": "*"
+                    },
+                    success: onSuccess,
+                    error: onError
+                });
+                function onSuccess(data) {
+                    alert('List Title and Description Updated Successfully !');
+                }
+                function onError(error) {
+                    alert(JSON.stringify(error));
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <table>
+        <h2>Update Using Rest API</h2>
+        <tr>
+            <td>Enter Old List Title</td>
+            <td><input type="text" id="txtOldTitle" size="40"></td>
+        </tr>
+        <tr>
+            <td>Enter New List Title</td>
+            <td><input type="text" id="txtNewTitle"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" value="Update List" id="btnClick3"></td>
+        </tr>
+    </table>
+</body>
+</html>
+
+<!-- #########################################################################
+Delete List Using Rest  API
+###########################################################################-->
+
+<html>
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#btnClick1").click(function () {
+                var title = $("#txtTitle1").val();
+                var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle(" + "'" + title + "'" + ")";
+                alert(requestUri);
+                $.ajax({
+                    url: requestUri,
+                    type: "DELETE",
+                    headers: {
+                        "accept": "application/json",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                        "IF-MATCH": "*"
+                    },
+                    success: onSuccess,
+                    error: onError
+                });
+                function onSuccess(data) {
+                    alert('List Deleted');
+                }
+                function onError
+                    (error) {
+                    alert(error);
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <table>
+    <h2>
+        Delete List Using Rest API
+    </h2>
+        <tr>
+            <td>Enter List Title:</td>
+            <td><input type="text" id="txtTitle1" size="40" /></td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="button" id="btnClick1" value="Delete List using Rest API" />
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

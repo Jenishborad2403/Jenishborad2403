@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>SharePoint</title>
+    <!-- <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
+    <!-- <link type="text/css" rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    ></script>
+
+    <script src="cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"></script>
+    <style>
+        /* CSS For Form */
+
+      /* form {
+        margin: auto;
+        width: 400px;
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-radius: 1em;
+      }
+      ul {
+        list-style: none;
+        padding: 0%;
+        margin: 0;
+      }
+      form label + input {
+        margin-top: 1em;
+      }
+      label {
+        display: inline-block;
+        width: 33%;
+        text-align: left;
+      }
+      input {
+        font: 1em sans-serif;
+        width: 242px;
+        box-sizing: border-box;
+        border: 1px solid #999;
+      }
+      input:focus {
+        border-color: #000;
+      }
+      button {
+        float: right;
+        margin-top: 17px;
+        margin-left: 7px;
+        box-sizing: initial;
+      } */
+
+/* Table CSS */
+table{
+    margin: auto;
+    width: 30%;
+    padding: 1em ;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+}
+
+    </style>
+  </head>
+  <body>
+     <!-- <div class="container">
+      <form class="form" id="myForm"  name="MyForm">
+        <fieldset>
+           <legend>Registration Form</legend> 
+          <div class="row">
+            <label for="FName">First Name</label>
+            <input type="text" name="FName" id="FName" minlength="2" />
+          </div>
+          <div class="row">
+            <label for="MName">Middle Name</label>
+            <input type="text" name="MName" id="MName" minlength="2" />
+          </div>
+          <div class="row">
+            <label for="LName">Last Name</label>
+            <input type="text" name="LName" id="LName" minlength="2" />
+          </div>
+          <div class="row">
+            <label for="Phone">Phone No.</label>
+            <input
+              type="text"
+              name="Phone"
+              pattern="[1-9]{10}"
+              maxlength="10"
+              id="Phone"
+              minlength="2"
+            />
+          </div>
+          <div class="row">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="Email" minlength="2" />
+          </div>
+          <div class="buttons">
+            <button class="btn1" type="button" id="submit" value=Submit onclick="submit" reset> Cancel
+            </button>
+            <button class="btn2" type="button" id="cancel" value="Reset" onclick=""> Submit
+            </button>
+
+            <!-- <input class="btn2" type="button" id="cancel" value="Cancel" onclick=""> -->
+            <!-- <input class="btn1" type="button" id="submit" value="Submit" onclick=""> -->
+          </div> 
+        </fieldset>
+      </form>
+    </div> 
+    <table class="tabConnectList">
+        <tr class="row">
+            <td >First Name:</td>
+            <td><input type="text" name="FName" id="FName" minlength="2" /></td>
+        </tr>
+        <tr class="row">
+            <td>Middle Name:</td>
+            <td><input type="text" name="MName" id="MName" minlength="2" /></td>
+        </tr>
+        <tr class="row">
+            <td>Last Name:</td>
+            <td><input type="text" name="LName" id="Lname"></td>
+        </tr>
+        <tr class="row">
+            <td>Phone No:</td>
+            <td><input type="text" name="Phone" id="Phone" pattern="[1-9]{10}" ></td>
+        </tr>
+        <tr class="row"></tr>
+            <td>Emial</td>
+            <td><input type="Email" name="Email" id="Email"></td>
+        </trcla>
+        <tr class="button">
+            <td>  <button class="btn1" id="Submit" value="Submit">Submit</button>
+            </td>
+            <td><button class="btn2" id="Cancel" value="Reset">Cancel</button></td>
+        </tr>
+        
+        
+    </table>
+  </body>
+  
+  <script>
+    $(document).ready(function(){
+      $("#btnSubmit").click (function(){
+          createItems();
+      });
+    });
+    function createItems() {
+      var Title = getEl("FName");
+      var MiddleName = getEl("MName");
+      var LastName = getEl("LName");
+      var PhoneNo = getEl("Phone");
+      var Email = getEl("Email");
+
+      var siteUrl =_spPageContextInfo.webAbsoluteUrl;
+      var fullUrl = siteUrl + "/_api/web/lists/GetByTitle('Employee')/items";
+      $.ajax({
+        type: "POST",
+        data:JSON.stringify({
+          __metadata: { type: "sp.Data.Employee" },
+                Title:"$FName." + FName.value,
+                MiddleName:"$MName" + MName.value,
+                LastName:"$LName" + LName.value,
+                PhoneNo:"$Phone" + Phone.value,
+                Email:"$Email" + Email.value,
+        }),
+        headers: {
+          accept: "applocation/json:odata=verbose",
+          "X-RequestDigest": "#__REQUESTDIGEST".val(),
+          "content-Type": "application/json;odata=verbose",
+        },
+        Sucess:onSucess,
+        error:onError,
+      });
+    }
+   function onSucess(){
+      alert("Your Items has been Submited");
+   }
+   function onError(){
+    alert("Your Item Is Not Submited");
+   }
+  </script>
+</html>

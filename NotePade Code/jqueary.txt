@@ -1,0 +1,4 @@
+ <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+        <!-- src="https://outsourceindia.sharepoint.com/sites/OSI/hrprivate/QualityCompliance/pre%20Site/SiteAssets/JavaScript/jQuery-3.5.1.js"></script> -->
+    <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->

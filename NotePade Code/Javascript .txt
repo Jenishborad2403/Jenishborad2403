@@ -1,0 +1,39 @@
+
+$(document).ready(function(){
+    $("btnSubmit").click(function(){
+        saveProject();
+    });
+});
+
+function saveProject(){
+    var item = {
+                 __metadata:
+                    {
+                        type: "SP.Data.ProjectListItem"
+                    },
+        "Title":$("#txtFirstName").val(),
+        "SecondName":$("#txtSecondName").val()
+    };
+
+    var requesturl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Project')/items";
+
+    $.ajx({
+        url:requesturl,
+        type:"POST",
+        contentType: "application/json;odata=verbose",
+        data: JSON.stringify(item),
+        Headers:{
+            "Accept": "appliction/json; odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+        },
+        success: onSuccess,
+        error: onError
+    });
+    function onSuccess(data){
+        alert("Item Created");
+        $("#txtFirstName").val();
+    }
+    function onError(error){
+        alert('error' + error);
+    }
+}

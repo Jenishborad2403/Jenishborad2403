@@ -1,0 +1,8 @@
+VVN DashBord Details:
+https://outsourceindia.sharepoint.com/sites/OSI/Style%20Library/OSI/VVN2/JournalDashboard.html
+/sites/OSI/Style Library/OSI/VVN1/JournalDashboard.html
+
+
+Main File Location: https://outsourceindia.sharepoint.com/sites/OSI/hrprivate/SitePages/VVNDashboard.aspx
+
+Html File Location : https://outsourceindia.sharepoint.com/sites/OSI/Style%20Library/Forms/AllItems.aspx?id=%2Fsites%2FOSI%2FStyle%20Library%2FOSI%2FVVN1%2FJournalDashboard%2Ehtml&parent=%2Fsites%2FOSI%2FStyle%20Library%2FOSI%2FVVN1&p=5

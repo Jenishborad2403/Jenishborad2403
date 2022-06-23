@@ -1,0 +1,128 @@
+window.addEventListener('DOMContentLoaded', function (event){
+    var btn = getEL("btn")
+    btn.addEventListener("click",submit)
+})
+
+function submit(e){
+    e.preventDefault();
+
+    var name = getEL ("EmpName")
+    var id = getEL ("EmpId")
+    var number = getEL ("EmpNo")
+    var city = getEL ("City")
+    var region = getEL("region")
+    var regionOpt = region.options[region.selectedIndex];
+
+    var sitUrl = _spPageContextInfo.webAbsoluteUrl;
+    var fullUrl =sitUrl + "/_api/web/lists/getbytitle('Employee')/items";
+
+    $.ajax({
+        url: fullUrl,
+        type: "POST",
+        data: JSON.stringify({
+            '__metadata': {'type':'SP.Data.EmployeeListItem'},
+            'Title': name.value,
+            'Employee Id' : id.value,
+            'Employee Number' : number.value,
+            'Employee City' : city.value,
+            'Region': regionOpt.value
+        }),
+        headers: {
+            "Accept": "appliction/json;odata=verbose",
+            "content-type": "appliction/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+        },
+        success: onQuerySucceeded,
+        error: onQueryFailed
+    });
+}
+
+function getEL(el){
+    return document.getElementById(el)
+}
+
+function onQuerySucceeded(){
+    alert ("Item Created")
+}
+
+function onQueryFailed(){
+    alert("Item did not Create")
+}
+##############################################################################################
+html link:
+https://outsourceindia.sharepoint.com/sites/OSI/hrprivate/QualityCompliance/pre%20Site/SiteAssets/RestAPI/employee.html
+
+Js Link:
+https://outsourceindia.sharepoint.com/sites/OSI/hrprivate/QualityCompliance/pre%20Site/SiteAssets/RestAPI/employee.js
+
+###################
+New js File
+##################
+$(document).ready(function () {
+    $("#btn").click(function () {
+        CreateListItem();
+    });
+});
+
+// function submit(e) {
+//     //Prevent a submit
+//     e.preventDefault();
+// }
+
+function CreateListItem() {
+    var name = $("#txtName").val();
+    var employeeID = $("#txtEmployeeID").val();
+    var department = $("#slctDepartment").val();
+    var city = $("#txtCity").val();
+    var contactNumber = $("#txtContactNumber").val();
+
+    var item = {
+        "__metadata": { "type": 'SP.Data.EmployeeListItem' },
+        "Title": name,
+        "Employee_x0020_ID": employeeID,
+        "Department": department,
+        "City": city,
+        "Contact_x0020_Number": contactNumber
+    };
+
+    $.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Employee')/items",
+        type: "POST",
+        contentType: "application/json;odata=verbose",
+        data: JSON.stringify(item),
+        headers: {
+            "Accept": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+        },
+        success: function (data) {
+            alert("success");
+        },
+        error: function (data) {
+            alert("success");
+        }
+    });
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
